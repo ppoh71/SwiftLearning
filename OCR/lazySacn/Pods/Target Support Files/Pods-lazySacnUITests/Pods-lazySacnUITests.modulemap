@@ -1,0 +1,6 @@
+framework module Pods_lazySacnUITests {
+  umbrella header "Pods-lazySacnUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

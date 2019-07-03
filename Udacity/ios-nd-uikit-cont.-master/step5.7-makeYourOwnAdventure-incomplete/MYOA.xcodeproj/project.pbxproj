@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4DD412171A6B3CE900B486A2 /* Adventure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD412161A6B3CE900B486A2 /* Adventure.swift */; };
+		4DD412191A6B409200B486A2 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD412181A6B409200B486A2 /* Credits.swift */; };
+		4DD4121B1A6B419D00B486A2 /* StoryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4121A1A6B419D00B486A2 /* StoryNode.swift */; };
+		4DD4121D1A6B41D700B486A2 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4121C1A6B41D700B486A2 /* Connection.swift */; };
+		4DD412211A6B53D100B486A2 /* Tiger.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DD412201A6B53D000B486A2 /* Tiger.plist */; };
+		A90F55C31A09B3F30044B7A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F55C21A09B3F30044B7A3 /* AppDelegate.swift */; };
+		A90F55CA1A09B3F30044B7A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A90F55C91A09B3F30044B7A3 /* Images.xcassets */; };
+		A90F55CD1A09B3F30044B7A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90F55CB1A09B3F30044B7A3 /* LaunchScreen.xib */; };
+		A9D420B51A0A6E0D00E6BAAB /* MainMultiAdventure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9D420B11A0A6E0D00E6BAAB /* MainMultiAdventure.storyboard */; };
+		A9D420B91A0A6E5A00E6BAAB /* RootTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D420B71A0A6E5A00E6BAAB /* RootTableViewController.swift */; };
+		A9D420C31A0A6E9E00E6BAAB /* StoryNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D420C01A0A6E9E00E6BAAB /* StoryNodeViewController.swift */; };
+		A9D420C81A0A6EBD00E6BAAB /* Harp.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9D420C51A0A6EBD00E6BAAB /* Harp.plist */; };
+		A9D420C91A0A6EBD00E6BAAB /* HauntedHouse.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9D420C61A0A6EBD00E6BAAB /* HauntedHouse.plist */; };
+		A9D420CA1A0A6EBD00E6BAAB /* Stranger.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9D420C71A0A6EBD00E6BAAB /* Stranger.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4DD412161A6B3CE900B486A2 /* Adventure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adventure.swift; sourceTree = "<group>"; };
+		4DD412181A6B409200B486A2 /* Credits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
+		4DD4121A1A6B419D00B486A2 /* StoryNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryNode.swift; sourceTree = "<group>"; };
+		4DD4121C1A6B41D700B486A2 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		4DD412201A6B53D000B486A2 /* Tiger.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tiger.plist; sourceTree = "<group>"; };
+		A90F55BD1A09B3F30044B7A3 /* MYOA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYOA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A90F55C11A09B3F30044B7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A90F55C21A09B3F30044B7A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A90F55C91A09B3F30044B7A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A90F55CC1A09B3F30044B7A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A9D420B21A0A6E0D00E6BAAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainMultiAdventure.storyboard; sourceTree = "<group>"; };
+		A9D420B71A0A6E5A00E6BAAB /* RootTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTableViewController.swift; sourceTree = "<group>"; };
+		A9D420C01A0A6E9E00E6BAAB /* StoryNodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryNodeViewController.swift; sourceTree = "<group>"; };
+		A9D420C51A0A6EBD00E6BAAB /* Harp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Harp.plist; sourceTree = "<group>"; };
+		A9D420C61A0A6EBD00E6BAAB /* HauntedHouse.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HauntedHouse.plist; sourceTree = "<group>"; };
+		A9D420C71A0A6EBD00E6BAAB /* Stranger.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Stranger.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A90F55BA1A09B3F30044B7A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4DD412151A6B3CD400B486A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DD412161A6B3CE900B486A2 /* Adventure.swift */,
+				4DD412181A6B409200B486A2 /* Credits.swift */,
+				4DD4121A1A6B419D00B486A2 /* StoryNode.swift */,
+				4DD4121C1A6B41D700B486A2 /* Connection.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A90F55B41A09B3F30044B7A3 = {
+			isa = PBXGroup;
+			children = (
+				A90F55BF1A09B3F30044B7A3 /* MYOA */,
+				A90F55BE1A09B3F30044B7A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A90F55BE1A09B3F30044B7A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A90F55BD1A09B3F30044B7A3 /* MYOA.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A90F55BF1A09B3F30044B7A3 /* MYOA */ = {
+			isa = PBXGroup;
+			children = (
+				A90F55C21A09B3F30044B7A3 /* AppDelegate.swift */,
+				A9D420C01A0A6E9E00E6BAAB /* StoryNodeViewController.swift */,
+				A9D420B71A0A6E5A00E6BAAB /* RootTableViewController.swift */,
+				4DD412151A6B3CD400B486A2 /* Model */,
+				A9D420B11A0A6E0D00E6BAAB /* MainMultiAdventure.storyboard */,
+				A90F55CB1A09B3F30044B7A3 /* LaunchScreen.xib */,
+				A90F55C91A09B3F30044B7A3 /* Images.xcassets */,
+				A90F55C01A09B3F30044B7A3 /* Supporting Files */,
+			);
+			path = MYOA;
+			sourceTree = "<group>";
+		};
+		A90F55C01A09B3F30044B7A3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4DD412201A6B53D000B486A2 /* Tiger.plist */,
+				A9D420C51A0A6EBD00E6BAAB /* Harp.plist */,
+				A9D420C71A0A6EBD00E6BAAB /* Stranger.plist */,
+				A9D420C61A0A6EBD00E6BAAB /* HauntedHouse.plist */,
+				A90F55C11A09B3F30044B7A3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A90F55BC1A09B3F30044B7A3 /* MYOA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A90F55DC1A09B3F30044B7A3 /* Build configuration list for PBXNativeTarget "MYOA" */;
+			buildPhases = (
+				A90F55B91A09B3F30044B7A3 /* Sources */,
+				A90F55BA1A09B3F30044B7A3 /* Frameworks */,
+				A90F55BB1A09B3F30044B7A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MYOA;
+			productName = MYOA;
+			productReference = A90F55BD1A09B3F30044B7A3 /* MYOA.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A90F55B51A09B3F30044B7A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Udacity;
+				TargetAttributes = {
+					A90F55BC1A09B3F30044B7A3 = {
+						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0800;
+					};
+				};
+			};
+			buildConfigurationList = A90F55B81A09B3F30044B7A3 /* Build configuration list for PBXProject "MYOA" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A90F55B41A09B3F30044B7A3;
+			productRefGroup = A90F55BE1A09B3F30044B7A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A90F55BC1A09B3F30044B7A3 /* MYOA */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A90F55BB1A09B3F30044B7A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A90F55CD1A09B3F30044B7A3 /* LaunchScreen.xib in Resources */,
+				A9D420CA1A0A6EBD00E6BAAB /* Stranger.plist in Resources */,
+				4DD412211A6B53D100B486A2 /* Tiger.plist in Resources */,
+				A9D420C91A0A6EBD00E6BAAB /* HauntedHouse.plist in Resources */,
+				A9D420B51A0A6E0D00E6BAAB /* MainMultiAdventure.storyboard in Resources */,
+				A9D420C81A0A6EBD00E6BAAB /* Harp.plist in Resources */,
+				A90F55CA1A09B3F30044B7A3 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A90F55B91A09B3F30044B7A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DD4121B1A6B419D00B486A2 /* StoryNode.swift in Sources */,
+				4DD4121D1A6B41D700B486A2 /* Connection.swift in Sources */,
+				4DD412171A6B3CE900B486A2 /* Adventure.swift in Sources */,
+				A9D420B91A0A6E5A00E6BAAB /* RootTableViewController.swift in Sources */,
+				A9D420C31A0A6E9E00E6BAAB /* StoryNodeViewController.swift in Sources */,
+				4DD412191A6B409200B486A2 /* Credits.swift in Sources */,
+				A90F55C31A09B3F30044B7A3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A90F55CB1A09B3F30044B7A3 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A90F55CC1A09B3F30044B7A3 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		A9D420B11A0A6E0D00E6BAAB /* MainMultiAdventure.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9D420B21A0A6E0D00E6BAAB /* Base */,
+			);
+			name = MainMultiAdventure.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A90F55DA1A09B3F30044B7A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A90F55DB1A09B3F30044B7A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A90F55DD1A09B3F30044B7A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MYOA/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.udacity.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A90F55DE1A09B3F30044B7A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MYOA/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.udacity.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A90F55B81A09B3F30044B7A3 /* Build configuration list for PBXProject "MYOA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A90F55DA1A09B3F30044B7A3 /* Debug */,
+				A90F55DB1A09B3F30044B7A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A90F55DC1A09B3F30044B7A3 /* Build configuration list for PBXNativeTarget "MYOA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A90F55DD1A09B3F30044B7A3 /* Debug */,
+				A90F55DE1A09B3F30044B7A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A90F55B51A09B3F30044B7A3 /* Project object */;
+}

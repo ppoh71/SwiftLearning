@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZvP-em-Vva">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="1fh-3f-Ihk">
+            <objects>
+                <navigationController id="ZvP-em-Vva" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nk5-mD-Mv4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Adz-p6-Uga" kind="relationship" relationship="rootViewController" id="XhP-f2-u1l"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lXP-bt-rMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1490" y="-125"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VNP-0B-Gg3">
+            <objects>
+                <viewController id="Adz-p6-Uga" customClass="MYOAViewController" customModule="MyAdventure" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kOj-Lm-8f4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OJ9-kc-vwf">
+                                <rect key="frame" x="70" y="104" width="235" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="235" id="jVy-oA-lM0"/>
+                                    <constraint firstAttribute="height" constant="128" id="oW1-WE-1bN"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ug-Kk-z8J">
+                                <rect key="frame" x="159.5" y="602" width="56" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Wmr-WU-QBt"/>
+                                </constraints>
+                                <state key="normal" title="Go right"/>
+                                <connections>
+                                    <segue destination="gjc-aq-8mg" kind="show" id="fWR-yw-hMf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXs-Bn-Qrr">
+                                <rect key="frame" x="164.5" y="562" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ly1-Gf-sXB"/>
+                                </constraints>
+                                <state key="normal" title="Go left"/>
+                                <connections>
+                                    <segue destination="7At-6O-d7J" kind="show" id="gz6-iO-udI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Ug-Kk-z8J" firstAttribute="centerX" secondItem="kOj-Lm-8f4" secondAttribute="centerX" id="AJf-bz-VtI"/>
+                            <constraint firstItem="zIq-xO-VhS" firstAttribute="trailing" secondItem="OJ9-kc-vwf" secondAttribute="trailing" constant="70" id="WA6-gG-5Sg"/>
+                            <constraint firstItem="OJ9-kc-vwf" firstAttribute="leading" secondItem="zIq-xO-VhS" secondAttribute="leading" constant="70" id="Z6D-cp-pnv"/>
+                            <constraint firstItem="zIq-xO-VhS" firstAttribute="bottom" secondItem="8Ug-Kk-z8J" secondAttribute="bottom" constant="35" id="cdo-s9-tDO"/>
+                            <constraint firstItem="OJ9-kc-vwf" firstAttribute="top" secondItem="zIq-xO-VhS" secondAttribute="top" constant="40" id="d4d-fP-wab"/>
+                            <constraint firstItem="8Ug-Kk-z8J" firstAttribute="top" secondItem="FXs-Bn-Qrr" secondAttribute="bottom" constant="10" id="ffY-8n-hnK"/>
+                            <constraint firstItem="FXs-Bn-Qrr" firstAttribute="centerX" secondItem="kOj-Lm-8f4" secondAttribute="centerX" id="pLS-Kf-VRe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zIq-xO-VhS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8OB-eH-sCt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcm-Zp-Q5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-785" y="-135"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nPO-0l-Iu6">
+            <objects>
+                <viewController id="7At-6O-d7J" customClass="MYOAViewController" customModule="MyAdventure" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kyj-vD-gVX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FKh-Np-9kj">
+                                <rect key="frame" x="70" y="104" width="235" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="A41-WA-CI7"/>
+                                    <constraint firstAttribute="width" constant="235" id="I5g-K6-KSt"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NI-Zn-UGl">
+                                <rect key="frame" x="159.5" y="602" width="56" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cfn-BG-AoM"/>
+                                </constraints>
+                                <state key="normal" title="Go right"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fez-Ge-yQR">
+                                <rect key="frame" x="164.5" y="562" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7lu-04-ZN5"/>
+                                </constraints>
+                                <state key="normal" title="Go left"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4NI-Zn-UGl" firstAttribute="centerX" secondItem="Kyj-vD-gVX" secondAttribute="centerX" id="8JN-FC-pVY"/>
+                            <constraint firstItem="4NI-Zn-UGl" firstAttribute="top" secondItem="fez-Ge-yQR" secondAttribute="bottom" constant="10" id="M5t-OE-NTA"/>
+                            <constraint firstItem="FKh-Np-9kj" firstAttribute="leading" secondItem="W1i-zv-efQ" secondAttribute="leading" constant="70" id="Vik-Sl-ZES"/>
+                            <constraint firstItem="FKh-Np-9kj" firstAttribute="top" secondItem="W1i-zv-efQ" secondAttribute="top" constant="40" id="YqU-eS-zBZ"/>
+                            <constraint firstItem="fez-Ge-yQR" firstAttribute="centerX" secondItem="Kyj-vD-gVX" secondAttribute="centerX" id="dMH-QU-7LQ"/>
+                            <constraint firstItem="W1i-zv-efQ" firstAttribute="bottom" secondItem="4NI-Zn-UGl" secondAttribute="bottom" constant="35" id="hYW-QS-hCp"/>
+                            <constraint firstItem="W1i-zv-efQ" firstAttribute="trailing" secondItem="FKh-Np-9kj" secondAttribute="trailing" constant="70" id="ut2-Yc-R5S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="W1i-zv-efQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wld-bA-Bl1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qEJ-Ud-QFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-52" y="-266"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cCM-ng-Yrg">
+            <objects>
+                <viewController id="gjc-aq-8mg" customClass="MYOAViewController" customModule="MyAdventure" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2qC-6K-deo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sJ3-Nm-v42">
+                                <rect key="frame" x="70" y="104" width="235" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="QQS-bZ-dHa"/>
+                                    <constraint firstAttribute="width" constant="235" id="wMo-73-QKZ"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDe-gt-IIf">
+                                <rect key="frame" x="159.5" y="602" width="56" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="nSq-AO-Wae"/>
+                                </constraints>
+                                <state key="normal" title="Go right"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B09-wa-duX">
+                                <rect key="frame" x="164.5" y="562" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yGZ-6p-nJD"/>
+                                </constraints>
+                                <state key="normal" title="Go left"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BB8-0f-E1S" firstAttribute="trailing" secondItem="sJ3-Nm-v42" secondAttribute="trailing" constant="70" id="0nN-sL-Gu3"/>
+                            <constraint firstItem="B09-wa-duX" firstAttribute="centerX" secondItem="2qC-6K-deo" secondAttribute="centerX" id="N4j-Jc-Mws"/>
+                            <constraint firstItem="rDe-gt-IIf" firstAttribute="centerX" secondItem="2qC-6K-deo" secondAttribute="centerX" id="RdL-7I-FEt"/>
+                            <constraint firstItem="rDe-gt-IIf" firstAttribute="top" secondItem="B09-wa-duX" secondAttribute="bottom" constant="10" id="ate-9U-rAO"/>
+                            <constraint firstItem="BB8-0f-E1S" firstAttribute="bottom" secondItem="rDe-gt-IIf" secondAttribute="bottom" constant="35" id="jGI-MW-MUR"/>
+                            <constraint firstItem="sJ3-Nm-v42" firstAttribute="top" secondItem="BB8-0f-E1S" secondAttribute="top" constant="40" id="nvh-JB-PqH"/>
+                            <constraint firstItem="sJ3-Nm-v42" firstAttribute="leading" secondItem="BB8-0f-E1S" secondAttribute="leading" constant="70" id="o5D-ES-i25"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BB8-0f-E1S"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="U7p-9h-an4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Rk-fs-zvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-52" y="457"/>
+        </scene>
+    </scenes>
+</document>
