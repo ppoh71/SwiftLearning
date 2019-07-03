@@ -197,8 +197,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     // Draw the appropriate plane over the image.
     updateQueue.async {
-      var planeNode = SCNNode()
-
+      var planeNode = self.createArtworkPlaneNode(withReferenceImage: referenceImage, andImageName: imageName)
+      planeNode.eulerAngles.x = -.pi/2
+      node.addChildNode(planeNode)
+      
+      var textNode = self.createArtworkNameNode(withImageName: imageName)
+      node.addChildNode(textNode)
+      
       if isArtImage {
         // If the detected artwork is one that we’d like to highlight (and one which we’d
         // like the user to tap to find out more), draw an “artwork” plane and
@@ -239,8 +244,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
   func createArtworkPlaneNode(withReferenceImage referenceImage: ARReferenceImage,
                               andImageName imageName: String) -> SCNNode {
 
+    let flashPlaneAction = SCNAction.sequence([
+    .wait(duration: 0.25),
+    .fadeOpacity(to: 0.85, duration: 0.25),
+    .fadeOpacity(to: 0.25, duration: 0.25),
+    .fadeOpacity(to: 0.85, duration: 0.25),
+    .fadeOpacity(to: 0.25, duration: 0.25)
+    ])
+    
+    let plane = SCNPlane(width: referenceImage.physicalSize.width * 1.5, height: referenceImage.physicalSize.height * 1.5)
+    let planeNode = SCNNode(geometry: plane)
+    planeNode.opacity = 0.25
+    planeNode.runAction(flashPlaneAction)
+    planeNode.name = imageName
+    
     // Draw the plane.
-    return SCNNode()
+    return planeNode
   }
 
   // Create an opaque plane featuring the soothing image of Ray Wenderlich,
@@ -259,7 +278,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     let textSize: CGFloat = 0.2
     let textDepth: CGFloat = 0.02
 
-    return SCNNode()
+    let artworkNameText = SCNText(string: artworkDisplayNames[imageName], extrusionDepth: 0.2)
+    artworkNameText.font = UIFont(name: textFont, size: textSize)?.withTraits(traits: .traitBold)
+    artworkNameText.alignmentMode = kCAAlignmentCenter
+    
+    artworkNameText.firstMaterial?.diffuse.contents = UIColor.orange
+    artworkNameText.firstMaterial?.specular.contents = UIColor.white
+    artworkNameText.firstMaterial?.isDoubleSided = true
+    artworkNameText.chamferRadius = CGFloat(textDepth)
+    
+    let artworkNameTextNode = SCNNode(geometry: artworkNameText)
+    artworkNameTextNode.scale = SCNVector3(textScaleFactor, textScaleFactor, textScaleFactor)
+    artworkNameTextNode.name = imageName
+    
+    let (minBound, maxBound) = artworkNameText.boundingBox
+    artworkNameTextNode.pivot = SCNMatrix4MakeTranslation((maxBound.x - minBound.x) / 2, minBound.y, 0)
+    
+    let billboardConstraint = SCNBillboardConstraint()
+    billboardConstraint.freeAxes = SCNBillboardAxis.Y
+    artworkNameTextNode.constraints = [billboardConstraint]
+    
+    return artworkNameTextNode
   }
 
 }
