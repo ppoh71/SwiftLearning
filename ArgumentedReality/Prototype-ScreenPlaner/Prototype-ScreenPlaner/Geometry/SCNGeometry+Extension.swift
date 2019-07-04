@@ -12,80 +12,8 @@ import SceneKit
 
 extension SCNGeometry {
   
-  // create thin line between 2 points, with color
-  static func createLine(startPoint: SCNVector3, endPoint: SCNVector3, color : UIColor) -> SCNNode {
-    let vertices: [SCNVector3] = [startPoint, endPoint]
-    let data = NSData(bytes: vertices, length: MemoryLayout<SCNVector3>.size * vertices.count) as Data
-    
-    let vertexSource = SCNGeometrySource(data: data,
-                                         semantic: .vertex,
-                                         vectorCount: vertices.count,
-                                         usesFloatComponents: true,
-                                         componentsPerVector: 3,
-                                         bytesPerComponent: MemoryLayout<Float>.size,
-                                         dataOffset: 0,
-                                         dataStride: MemoryLayout<SCNVector3>.stride)
-    
-    
-    let indices: [Int32] = [ 0, 1]
-    let indexData = NSData(bytes: indices, length: MemoryLayout<Int32>.size * indices.count) as Data
-    let element = SCNGeometryElement(data: indexData,
-                                     primitiveType: .line,
-                                     primitiveCount: indices.count/2,
-                                     bytesPerIndex: MemoryLayout<Int32>.size)
-    
-    let line = SCNGeometry(sources: [vertexSource], elements: [element])
-    line.firstMaterial?.lightingModel = SCNMaterial.LightingModel.constant
-    line.firstMaterial?.diffuse.contents = color
-    
-    let lineNode = SCNNode(geometry: line)
-    return lineNode;
-    
-  }
-  
-  // create thin line between multi points
-  static func createMultiLine(lineVertices: [SCNVector3], color : UIColor) -> SCNNode {
-    
-    let vertices: [SCNVector3] = lineVertices
-    let data = NSData(bytes: vertices, length: MemoryLayout<SCNVector3>.size * vertices.count) as Data
-    
-    let vertexSource = SCNGeometrySource(data: data,
-                                         semantic: .vertex,
-                                         vectorCount: vertices.count,
-                                         usesFloatComponents: true,
-                                         componentsPerVector: 3,
-                                         bytesPerComponent: MemoryLayout<Float>.size,
-                                         dataOffset: 0,
-                                         dataStride: MemoryLayout<SCNVector3>.stride)
-    
-    
-    
-    // create indicices from lineVertices array
-    // repeat vertices to connect as whole line
-    var indices = [Int32]()
-    for (index,_) in lineVertices.enumerated() {
-      if index > 1 {
-        indices.append(Int32(index - 1))
-      }
-        indices.append(Int32(index))
-    }
-
-    let indexData = NSData(bytes: indices, length: MemoryLayout<Int32>.size * indices.count) as Data
-    let element = SCNGeometryElement(data: indexData,
-                                     primitiveType: .line,
-                                     primitiveCount: indices.count/2,
-                                     bytesPerIndex: MemoryLayout<Int32>.size)
-    
-    let line = SCNGeometry(sources: [vertexSource], elements: [element])
-    line.firstMaterial?.lightingModel = SCNMaterial.LightingModel.constant
-    line.firstMaterial?.diffuse.contents = color
-    
-    let lineNode = SCNNode(geometry: line)
-    return lineNode;
-    
-  }
-  
-  static func lineThrough(points: [SCNVector3], width:Int = 20, closed: Bool = false, color: CGColor = UIColor.black.cgColor, mitter: Bool = false) -> SCNNode {
+  // create thick lines, shaders.metal needed
+  static func multiPointsLine(points: [SCNVector3], width:Int = 20, closed: Bool = false, color: CGColor = UIColor.black.cgColor, mitter: Bool = false) -> SCNNode {
     
     // Becouse we cannot use geometry shaders in metal, every point on the line has to be changed into 4 verticles
     let vertices: [SCNVector3] = points.flatMap { p in [p, p, p, p] }
@@ -123,5 +51,57 @@ extension SCNGeometry {
     
     let lineNode = SCNNode(geometry: geometry)
     return lineNode;
+  }
+  
+  // create GReenScreen Plane from added vertices
+  static func createtPlane(planeVertices: [SCNVector3]) -> SCNNode {
+    let src = SCNGeometrySource(vertices: planeVertices)
+    
+    let indices: [UInt32] = [0, 1, 2, 3]
+    
+    
+    let normals = SCNGeometrySource(normals: [SCNVector3](repeating: SCNVector3(0, 0, 1), count: 4))
+    
+    let inds = SCNGeometryElement(indices: indices, primitiveType: .triangleStrip)
+    let geometry = SCNGeometry(sources: [src], elements: [inds])
+    
+    let shapeNode = SCNNode(geometry: geometry)
+    shapeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.green
+    shapeNode.geometry?.firstMaterial?.transparent.contents = UIColor(red: 1, green: 1, blue: 1, alpha: 0.75)
+    //shapeNode.geometry?.firstMaterial?.specular.contents = UIColor.white
+    shapeNode.geometry?.firstMaterial?.lightingModel = .constant
+    
+    shapeNode.geometry?.firstMaterial?.isDoubleSided = true
+    return shapeNode
+    
+  }
+  
+  // add node per each added position for GreenScreen
+  static func cornerNodeAtPosition(_ position: SCNVector3) -> SCNNode {
+    let sphere = SCNSphere(radius: 0.01)
+    sphere.firstMaterial?.diffuse.contents = UIColor.white
+    
+    let node = SCNNode(geometry: sphere)
+    node.position = position
+    
+    return node
+  }
+  
+  // get add height to a given point
+  static func addHeightToPoint(point: SCNVector3, height: Float) -> SCNVector3{
+    let pointPlusHeight = SCNVector3(point.x, point.y + height, point.z)
+    return pointPlusHeight
+  }
+  
+  // get add height to a given point array
+  static func addHeightToPointArray(points: [SCNVector3], height: Float) -> [SCNVector3] {
+    var heightPoints = [SCNVector3]()
+    
+    // add height to each points
+    for point in points {
+      let pointPlusHeight = SCNVector3(point.x, point.y + height, point.z)
+      heightPoints.append(pointPlusHeight)
+    }
+    return heightPoints
   }
 }
