@@ -53,14 +53,15 @@ extension SCNGeometry {
     return lineNode;
   }
   
-  // create GReenScreen Plane from added vertices
-  static func createtPlane(planeVertices: [SCNVector3]) -> SCNNode {
-    let src = SCNGeometrySource(vertices: planeVertices)
+  // create GreenScreen
+  static func createtPlane(baseLinePoints: [SCNVector3], height: Float) -> SCNNode {
     
-    let indices: [UInt32] = [0, 1, 2, 3]
+    let shapeMesh = SCNGeometry.getShapeMesh(baseLinePoints: baseLinePoints, height: height)
+    let src = SCNGeometrySource(vertices: shapeMesh)
     
-    
-    let normals = SCNGeometrySource(normals: [SCNVector3](repeating: SCNVector3(0, 0, 1), count: 4))
+    let indices: [UInt32] = shapeMesh.enumerated().map { (index, element) in
+      return UInt32(index)
+    }
     
     let inds = SCNGeometryElement(indices: indices, primitiveType: .triangleStrip)
     let geometry = SCNGeometry(sources: [src], elements: [inds])
@@ -68,10 +69,10 @@ extension SCNGeometry {
     let shapeNode = SCNNode(geometry: geometry)
     shapeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.green
     shapeNode.geometry?.firstMaterial?.transparent.contents = UIColor(red: 1, green: 1, blue: 1, alpha: 0.75)
-    //shapeNode.geometry?.firstMaterial?.specular.contents = UIColor.white
+    shapeNode.geometry?.firstMaterial?.specular.contents = UIColor.white
     shapeNode.geometry?.firstMaterial?.lightingModel = .constant
-    
     shapeNode.geometry?.firstMaterial?.isDoubleSided = true
+    print(shapeNode)
     return shapeNode
     
   }
@@ -104,4 +105,19 @@ extension SCNGeometry {
     }
     return heightPoints
   }
+  
+  // get shape mesh from baseLine and heightline
+  static func getShapeMesh(baseLinePoints: [SCNVector3], height: Float) -> [SCNVector3] {
+    let heightLinePoints = SCNGeometry.addHeightToPointArray(points: baseLinePoints, height: height)
+    var geometryPoints = [SCNVector3]()
+    
+    // set points to connect for shape
+    // 4 points for each wall element
+    for (index,point) in baseLinePoints.enumerated() {
+        geometryPoints.append(point)
+        geometryPoints.append(heightLinePoints[index])
+    }
+    return geometryPoints
+  }
+  
 }

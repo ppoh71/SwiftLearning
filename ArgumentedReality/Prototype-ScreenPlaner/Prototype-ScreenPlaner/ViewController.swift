@@ -20,10 +20,12 @@ class ViewController: UIViewController {
   var baseLineGreenScreen: SCNNode?
   var heightLineGreenScreen: SCNNode?
   var pointHeightForGreenScreen: Float = 0.5
-
   var nextConnectPointForGreenScreen = SCNNode()
   var dictPanes = [ARPlaneAnchor: GroundMesh]()
   var finishCreatingPointsForGreenScreen = false
+  
+  var allGreenScreensInStudio: [GreenScreen]?
+  
   
   @IBAction func addButtonNodeTapped(_ sender: Any) {
     addPointToGreenScreen()
@@ -75,6 +77,7 @@ class ViewController: UIViewController {
   
   // connect base lines to form GreenScreen Shape
   fileprivate func addPointToGreenScreen() {
+    finishCreatingPointsForGreenScreen = false
     
     // check if we have a ground planeAnchor
     if let position = self.doHitTestOnExistingPlanes() {
@@ -103,8 +106,8 @@ class ViewController: UIViewController {
     finishCreatingPointsForGreenScreen = true
     
     //get height points from base points
-    let basePoints = pointsForGreenScreen
-    let heightPoints = SCNGeometry.addHeightToPointArray(points: basePoints, height: pointHeightForGreenScreen)
+    let baseLinePoints = pointsForGreenScreen
+    let heightPoints = SCNGeometry.addHeightToPointArray(points: baseLinePoints, height: pointHeightForGreenScreen)
     
     // add height point nodes
     for point in heightPoints {
@@ -114,14 +117,14 @@ class ViewController: UIViewController {
     }
     
     // connect height points with line
-    if basePoints.count >= 2 {
+    if baseLinePoints.count >= 2 {
       self.heightLineGreenScreen?.removeFromParentNode()
       self.heightLineGreenScreen = SCNGeometry.multiPointsLine(points: heightPoints, width: 5, closed: false, color: UIColor.red.cgColor, mitter: false)
       self.sceneView.scene.rootNode.addChildNode(self.heightLineGreenScreen!)
     }
     
     // connect the height lines betwwen base and height points
-    for (index,point) in basePoints.enumerated() {
+    for (index,point) in baseLinePoints.enumerated() {
       var points = [SCNVector3]()
       points.append(point)
       points.append(heightPoints[index])
@@ -129,14 +132,17 @@ class ViewController: UIViewController {
       self.sceneView.scene.rootNode.addChildNode(self.heightLineGreenScreen!)
     }
     
+    // finally add GreenScreen Shape
+    let nodeGreenScreen = SCNGeometry.createtPlane(baseLinePoints: baseLinePoints, height: pointHeightForGreenScreen)
+    sceneView.scene.rootNode.addChildNode(nodeGreenScreen)
     
-    
-    if pointsForGreenScreen.count == 4 {
-      //        let plane = getPlane(planeVertices: shapeVertices)
-      //        sceneView.scene.rootNode.addChildNode(plane)
-      //        shapeVertices = [SCNVector3]()
-    }
+
+    // save greenscreen and prepare for new greenscreen
+    let newGreenScreen = GreenScreen(nodeGreenScreen: nodeGreenScreen, baseLinePoints: baseLinePoints)
+    allGreenScreensInStudio?.append(newGreenScreen)
+    pointsForGreenScreen = [SCNVector3]()
   }
+  
   
   
   // HitTest Function
@@ -189,7 +195,7 @@ extension ViewController: ARSCNViewDelegate {
       
       self.nextConnectPointForGreenScreen.removeFromParentNode()
       
-      guard self.finishCreatingPointsForGreenScreen == false, self.pointsForGreenScreen.count >= 2
+      guard self.finishCreatingPointsForGreenScreen == false, self.pointsForGreenScreen.count >= 1
       else { return }
       
       if let lastPoint = self.pointsForGreenScreen.last {
