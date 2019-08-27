@@ -15,6 +15,8 @@
 		A9E842DF23140E1000E11FFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E842DD23140E1000E11FFF /* LaunchScreen.storyboard */; };
 		A9E842EA23140E1000E11FFF /* SwiftUI_Basics1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E842E923140E1000E11FFF /* SwiftUI_Basics1Tests.swift */; };
 		A9E842F523140E1000E11FFF /* SwiftUI_Basics1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E842F423140E1000E11FFF /* SwiftUI_Basics1UITests.swift */; };
+		A9E8430523141BB900E11FFF /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E8430423141BB900E11FFF /* CircleImage.swift */; };
+		A9E8430723141EC600E11FFF /* Mapview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E8430623141EC600E11FFF /* Mapview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		A9E842F023140E1000E11FFF /* SwiftUI-Basics1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftUI-Basics1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E842F423140E1000E11FFF /* SwiftUI_Basics1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_Basics1UITests.swift; sourceTree = "<group>"; };
 		A9E842F623140E1000E11FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9E8430423141BB900E11FFF /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		A9E8430623141EC600E11FFF /* Mapview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				A9E842D223140E0E00E11FFF /* AppDelegate.swift */,
 				A9E842D423140E0E00E11FFF /* SceneDelegate.swift */,
 				A9E842D623140E0E00E11FFF /* ContentView.swift */,
+				A9E8430423141BB900E11FFF /* CircleImage.swift */,
+				A9E8430623141EC600E11FFF /* Mapview.swift */,
 				A9E842D823140E1000E11FFF /* Assets.xcassets */,
 				A9E842DD23140E1000E11FFF /* LaunchScreen.storyboard */,
 				A9E842E023140E1000E11FFF /* Info.plist */,
@@ -268,7 +274,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9E842D323140E0E00E11FFF /* AppDelegate.swift in Sources */,
+				A9E8430523141BB900E11FFF /* CircleImage.swift in Sources */,
 				A9E842D523140E0E00E11FFF /* SceneDelegate.swift in Sources */,
+				A9E8430723141EC600E11FFF /* Mapview.swift in Sources */,
 				A9E842D723140E0E00E11FFF /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
