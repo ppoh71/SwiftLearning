@@ -10,15 +10,21 @@ import UIKit
 import SceneKit
 import ARKit
 import SwiftUI
+import Combine
 
 
 class ViewController: UIViewController, ARSCNViewDelegate {
-
+    let navControll = NaVController()
+  
     @IBOutlet var sceneView: ARSCNView!
     
-    override func viewDidLoad() {
+    @IBAction func testAction(_ sender: Any) {
+      navControll.test = "x"
+    }
+  override func viewDidLoad() {
         super.viewDidLoad()
         
+   
         // Set the view's delegate
         sceneView.delegate = self
         
@@ -32,7 +38,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
       
         // SwiftUI
-      let swiftUi = UIHostingController(rootView: SwiftUITest1())
+      
+      let swiftUi = UIHostingController(rootView: SwiftUITest1(navController: navControll))
         
       self.addChild(swiftUi)
       self.view.addSubview(swiftUi.view)

@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct SwiftUITest1: View {
+  @ObservedObject var navController: NaVController
+  
     var body: some View {
       
       ZStack{
@@ -19,20 +21,31 @@ struct SwiftUITest1: View {
         .clipped()
         
         Button(action: {
+          self.doThings()
           print("Button pressed")
         }
         
         ) {
+          if navController.test == "x" {
           Text("Button")
+           .background(Color.red)
+          } else {
+             Text("Button")
             .background(Color.green)
+          }
         }
         
       }
     }
+  
+  func doThings() {
+    navController.printMessage()
+  }
+  
 }
 
 struct SwiftUITest1_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUITest1()
+      SwiftUITest1(navController: NaVController())
     }
 }

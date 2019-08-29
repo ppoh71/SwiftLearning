@@ -12,10 +12,10 @@ import Combine
 class NaVController: ObservableObject {
   var didChange = PassthroughSubject<Void, Never>()
   
-  var test = "Test String"
+  @Published var test = "Test String"
   
   func printMessage() {
-    print("Message Print")
+    print("Message Print from xxx")
   }
 }
 
