@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 
-class NaVController: ObservableObject {
+class NavController: ObservableObject {
   var didChange = PassthroughSubject<Void, Never>()
   
   @Published var test = "Test String"

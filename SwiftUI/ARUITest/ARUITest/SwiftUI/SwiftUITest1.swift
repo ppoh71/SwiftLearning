@@ -9,33 +9,13 @@
 import SwiftUI
 
 struct SwiftUITest1: View {
-  @ObservedObject var navController: NaVController
+  @EnvironmentObject var navController: NavController
   
     var body: some View {
-      
-      ZStack{
-    
-       Image("1")
-        .scaledToFill()
-        .frame(height: 200)
-        .clipped()
-        
-        Button(action: {
-          self.doThings()
-          print("Button pressed")
-        }
-        
-        ) {
-          if navController.test == "x" {
-          Text("Button")
-           .background(Color.red)
-          } else {
-             Text("Button")
-            .background(Color.green)
-          }
-        }
-        
-      }
+       ZStack{
+           ButtonSUI()
+              .buttonStyle(OutlineStyle())
+         }
     }
   
   func doThings() {
@@ -44,8 +24,10 @@ struct SwiftUITest1: View {
   
 }
 
+
+
 struct SwiftUITest1_Previews: PreviewProvider {
     static var previews: some View {
-      SwiftUITest1(navController: NaVController())
+      SwiftUITest1().environmentObject(NavController())
     }
 }

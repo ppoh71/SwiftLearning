@@ -14,7 +14,7 @@ import Combine
 
 
 class ViewController: UIViewController, ARSCNViewDelegate {
-    let navControll = NaVController()
+    let navControll = NavController()
   
     @IBOutlet var sceneView: ARSCNView!
     
@@ -39,7 +39,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
       
         // SwiftUI
       
-      let swiftUi = UIHostingController(rootView: SwiftUITest1(navController: navControll))
+      let swiftUi = UIHostingController(rootView: SwiftUITest1().environmentObject(navControll) )
         
       self.addChild(swiftUi)
       self.view.addSubview(swiftUi.view)
