@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A91475EB231B02BF00A8873F /* ButtonSetHeifghtForGS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91475EA231B02BF00A8873F /* ButtonSetHeifghtForGS.swift */; };
 		A9B679842315CEB900FC3200 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B679832315CEB900FC3200 /* AppDelegate.swift */; };
 		A9B679862315CEB900FC3200 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B679852315CEB900FC3200 /* art.scnassets */; };
 		A9B679882315CEB900FC3200 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B679872315CEB900FC3200 /* ViewController.swift */; };
@@ -16,10 +17,11 @@
 		A9B6799B2315CEBA00FC3200 /* ARUITestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6799A2315CEBA00FC3200 /* ARUITestTests.swift */; };
 		A9B679A62315CEBA00FC3200 /* ARUITestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B679A52315CEBA00FC3200 /* ARUITestUITests.swift */; };
 		A9B679B52315D10C00FC3200 /* SwiftUITest1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B679B42315D10C00FC3200 /* SwiftUITest1.swift */; };
-		A9B679B72315E59A00FC3200 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B679B62315E59A00FC3200 /* Mapper.swift */; };
-		A9CA3C6823196DA900C5E005 /* ButtonSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA3C6723196DA900C5E005 /* ButtonSUI.swift */; };
+		A9B679B72315E59A00FC3200 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B679B62315E59A00FC3200 /* NavController.swift */; };
+		A9CA3C6823196DA900C5E005 /* ButtonAddBasePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA3C6723196DA900C5E005 /* ButtonAddBasePoints.swift */; };
 		A9CA3C6A23196E1500C5E005 /* ShapesSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA3C6923196E1500C5E005 /* ShapesSUI.swift */; };
 		A9CA3C6D2319822F00C5E005 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA3C6C2319822F00C5E005 /* ButtonStyles.swift */; };
+		A9D8A612231B0A16005EAD0D /* ButtonStyleOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D8A611231B0A16005EAD0D /* ButtonStyleOn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A91475EA231B02BF00A8873F /* ButtonSetHeifghtForGS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSetHeifghtForGS.swift; sourceTree = "<group>"; };
 		A9B679802315CEB900FC3200 /* ARUITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARUITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B679832315CEB900FC3200 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B679852315CEB900FC3200 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -55,10 +58,11 @@
 		A9B679A52315CEBA00FC3200 /* ARUITestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARUITestUITests.swift; sourceTree = "<group>"; };
 		A9B679A72315CEBA00FC3200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B679B42315D10C00FC3200 /* SwiftUITest1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITest1.swift; sourceTree = "<group>"; };
-		A9B679B62315E59A00FC3200 /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
-		A9CA3C6723196DA900C5E005 /* ButtonSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSUI.swift; sourceTree = "<group>"; };
+		A9B679B62315E59A00FC3200 /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		A9CA3C6723196DA900C5E005 /* ButtonAddBasePoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAddBasePoints.swift; sourceTree = "<group>"; };
 		A9CA3C6923196E1500C5E005 /* ShapesSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesSUI.swift; sourceTree = "<group>"; };
 		A9CA3C6C2319822F00C5E005 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		A9D8A611231B0A16005EAD0D /* ButtonStyleOn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleOn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +148,7 @@
 			children = (
 				A9CA3C6B2319821900C5E005 /* Button */,
 				A9B679B42315D10C00FC3200 /* SwiftUITest1.swift */,
-				A9B679B62315E59A00FC3200 /* Mapper.swift */,
+				A9B679B62315E59A00FC3200 /* NavController.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -152,9 +156,11 @@
 		A9CA3C6B2319821900C5E005 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				A9CA3C6723196DA900C5E005 /* ButtonAddBasePoints.swift */,
+				A91475EA231B02BF00A8873F /* ButtonSetHeifghtForGS.swift */,
 				A9CA3C6923196E1500C5E005 /* ShapesSUI.swift */,
-				A9CA3C6723196DA900C5E005 /* ButtonSUI.swift */,
 				A9CA3C6C2319822F00C5E005 /* ButtonStyles.swift */,
+				A9D8A611231B0A16005EAD0D /* ButtonStyleOn.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -291,12 +297,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9B679B72315E59A00FC3200 /* Mapper.swift in Sources */,
+				A9B679B72315E59A00FC3200 /* NavController.swift in Sources */,
 				A9CA3C6A23196E1500C5E005 /* ShapesSUI.swift in Sources */,
 				A9B679B52315D10C00FC3200 /* SwiftUITest1.swift in Sources */,
-				A9CA3C6823196DA900C5E005 /* ButtonSUI.swift in Sources */,
+				A9CA3C6823196DA900C5E005 /* ButtonAddBasePoints.swift in Sources */,
 				A9CA3C6D2319822F00C5E005 /* ButtonStyles.swift in Sources */,
+				A9D8A612231B0A16005EAD0D /* ButtonStyleOn.swift in Sources */,
 				A9B679882315CEB900FC3200 /* ViewController.swift in Sources */,
+				A91475EB231B02BF00A8873F /* ButtonSetHeifghtForGS.swift in Sources */,
 				A9B679842315CEB900FC3200 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
