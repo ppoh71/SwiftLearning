@@ -7,35 +7,46 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ButtonAddBasePoints: View {
   @EnvironmentObject var navController: NavController
   
   @State private var toggle = false
   @State private var sides: Double = 8
-  @State private var scale: Double = 1
-  
-    
-  let shape =  PolygonShape(sides: 8, scale: 1)
+
+
+//  @State private var rotationDegrees: Double = -40
+//  @State private var rotation3D: Double = -190
   
     var body: some View {
       
       Button(action: {
         self.doThings()
-
       }
       ) {
-          PolygonShape(sides: sides, scale: scale).stroke(Color.blue, lineWidth: 3)
-            .buttonStyle(ButtonStyleOn())
-      }   
-    }
+        PolygonShape(sides: sides, scale: 0.5).stroke(Color.blue, lineWidth: 3)
+              .frame(width: 50, height: 50, alignment: .center)
+             .background(Image(systemName: navController.imageName))
+             .rotationEffect(Angle(degrees: navController.rotationDegrees))
+             .rotation3DEffect(Angle(degrees: navController.rotation3D), axis: (x: -10, y: -10, z: 0))
+             .scaleEffect(CGFloat(navController.scale))
+             .animation(.easeInOut(duration: 0.8))
+      }
+  }
+  
   
   public func doThings() {
-    print("click")
+    print("click but1")
     
-    self.toggle.toggle()
-    sides = self.toggle ? 12 : 8
-    scale = self.toggle ? 1 : 0.8
+    switch navController.actionState {
+      case .createBaselinesForGreenscreen:
+        print("create baseline")
+      case .setHeightForGreenscreen:
+         print("set height")
+      default:
+        print("Default")
+    }
     navController.printMessage()
   }
   

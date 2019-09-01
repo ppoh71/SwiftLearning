@@ -13,10 +13,9 @@ struct SwiftUITest1: View {
   
   @State private var rotationDegrees: Double = -40
   @State private var rotation3D: Double = -190
-  @State private var scale: Double = 0.01
+  @State private var scale: Double = 1
 
-  
-  let but1 =  ButtonSetHeightForGS()
+  let but1 =  ButtonAddBasePoints()
   
   var body: some View {
     
@@ -24,13 +23,13 @@ struct SwiftUITest1: View {
       
       HStack {
         Button(action: {
-          self.greenscreenMakeBasePoints()
+          self.navController.changeValues(actionState: .createBaselinesForGreenscreen)
         }) {
           Text("Add BasePoints")
         }
         
         Button(action: {
-              self.setHeight()
+          self.navController.changeValues(actionState: .setHeightForGreenscreen)
             }) {
               Text("Set Height")
             }
@@ -44,42 +43,35 @@ struct SwiftUITest1: View {
       }
       
       HStack {
-        
-        //if navController.actionState == .createBaselinesForGreenscreen {
-        ButtonAddBasePoints()
-          .buttonStyle(ButtonStyle1(rotation: $rotationDegrees, rotation3D: $rotation3D, scale: $scale))
-        //}
-       
-        
+        but1
       }
     }
   }
   
-  
-  
+
   func switchButton(type: Bool) {
     
     // hide button first
-    self.rotationDegrees = -270
-    self.rotation3D = 0
-    self.scale = 0.7
+//    self.rotationDegrees = -270
+//    self.rotation3D = 0
+//    self.scale = 0.7
     
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { // Change `2.0` to the desired number of seconds.
-       // Code you want to be delayed
-      self.rotationDegrees = 30
-      self.rotation3D = -360
-      self.scale = 1
-    }
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { // Change `2.0` to the desired number of seconds.
+//       // Code you want to be delayed
+//      self.rotationDegrees = 30
+//      self.rotation3D = -360
+//      self.scale = 1
+//    }
     
   }
   
   func setHeight() {
-
-    navController.setHeightForGreenscreen()
-
-    self.rotationDegrees = -270
-    self.rotation3D = 0
-    self.scale = 1
+    navController.switchActionToNone()
+    //navController.setHeightForGreenscreen()
+    print("set height")
+    //self.rotationDegrees = -270
+    //self.rotation3D = 0
+    //self.scale = 1
 
     
   }

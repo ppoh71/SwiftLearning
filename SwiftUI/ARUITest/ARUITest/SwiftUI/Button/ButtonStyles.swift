@@ -22,7 +22,6 @@ struct ButtonStyle1: ButtonStyle {
             .rotationEffect(Angle(degrees: self.rotation))
             .rotation3DEffect(Angle(degrees: self.rotation3D), axis: (x: -10, y: -10, z: 0))
             .scaleEffect(CGFloat(self.scale))
-            //.offset(x: self.xOffset, y: 0)
             .animation(.easeInOut(duration: 0.6))
     }
 }
