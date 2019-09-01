@@ -8,7 +8,6 @@
 import SwiftUI
 import Combine
 
-
 class NavController: ObservableObject {
   var didChange = PassthroughSubject<Void, Never>()
 
@@ -27,7 +26,7 @@ class NavController: ObservableObject {
     case resizeDisplay
   }
   
-  @Published var test = "Test String"
+  @Published var test = "Test String 1"
   @Published var actionState:ActionState = .none
   
   @Published var rotationDegrees: Double = -40
@@ -82,7 +81,4 @@ class NavController: ObservableObject {
   func switchActionToNone() {
     self.actionState = .none
   }
-  
 }
-
-
