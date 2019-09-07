@@ -11,41 +11,54 @@ import Combine
 
 struct ButtonAddBasePoints: View {
   @EnvironmentObject var navController: NavController
+  var buttonType: ButtonType
   
-  @State private var toggle = false
+
   @State private var sides: Double = 8
+  @State private var rotationDegrees: Double = 0
+  @State private var scaleBut: Double = 1
 
-
-//  @State private var rotationDegrees: Double = -40
-//  @State private var rotation3D: Double = -190
-  
-    var body: some View {
-      
-      Button(action: {
-        self.doThings()
-      }
-      ) {
-        PolygonShape(sides: sides, scale: 0.5).stroke(Color.blue, lineWidth: 3)
-              .frame(width: 50, height: 50, alignment: .center)
-             .background(Image(systemName: navController.imageName))
-             .rotationEffect(Angle(degrees: navController.rotationDegrees))
-             .rotation3DEffect(Angle(degrees: navController.rotation3D), axis: (x: -10, y: -10, z: 0))
-             .scaleEffect(CGFloat(navController.scale))
-             .animation(.easeInOut(duration: 0.8))
-      }
-  }
+  var body: some View {
+    
+    Button(action: {
+      self.doThings()
+    }
+    ) {
+      PolygonShape(sides: sides, scale: scaleBut).stroke(Color.blue, lineWidth: 1)
+          .frame(width: 50, height: 50, alignment: .center)
+          .rotationEffect(Angle(degrees: self.rotationDegrees))
+          .background(Image(systemName: self.buttonType.imageName))
+          .scaleEffect(CGFloat(self.scaleBut))
+          .animation(.easeInOut(duration: 0.3))
+    }
+}
   
   
-  public func doThings() {
+   func doThings() {
     print("click but1")
     
-    switch navController.actionState {
-      case .createBaselinesForGreenscreen:
+    // button on click animation
+    self.scaleBut = 1.01
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+      self.scaleBut = 1
+    }
+    
+    
+    //self.sides =  Double.random(in: 9..<13)
+    self.rotationDegrees += 90
+    
+    switch buttonType {
+    case .AddGroundPointsButton:
+      navController.createGreenscreenBasePoints()
         print("create baseline")
-      case .setHeightForGreenscreen:
+    case .SetHeightButton:
          print("set height")
-      default:
-        print("Default")
+         navController.setHeight()
+    case .NextToHeight:
+        navController.showHeightSettingsButton()
+       print("next")
+    case .NextToMaterial:
+      print("next to material")
     }
     navController.printMessage()
   }
@@ -55,6 +68,6 @@ struct ButtonAddBasePoints: View {
 struct ButtonAddBasePoints_Previews: PreviewProvider {
     var navC = NavController()
     static var previews: some View {
-      ButtonAddBasePoints().environmentObject(NavController())
+      ButtonAddBasePoints(buttonType: ButtonType.AddGroundPointsButton).environmentObject(NavController())
     }
 }

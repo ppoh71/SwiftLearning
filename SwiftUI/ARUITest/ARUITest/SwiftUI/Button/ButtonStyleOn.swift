@@ -17,7 +17,7 @@ struct ButtonStyleOn: ButtonStyle {
             .frame(width: 50, height: 50, alignment: .center)
             .background(Image(systemName: "plus"))
             .rotationEffect(Angle(degrees: Double(-280)))
-            .rotation3DEffect(Angle(degrees: -289), axis: (x: -10, y: -10, z: 0))
+            .rotation3DEffect(Angle(degrees: -360), axis: (x: -20, y: -40, z: 0))
             .scaleEffect(CGFloat(1))
             //.offset(x: self.xOffset, y: 0)
             .animation(.easeInOut(duration: 0.6))

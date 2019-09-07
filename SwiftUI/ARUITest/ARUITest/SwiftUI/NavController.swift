@@ -9,6 +9,53 @@ import SwiftUI
 import Combine
 
 
+enum ButtonType {
+  case AddGroundPointsButton
+  case SetHeightButton
+  case NextToHeight
+  case NextToMaterial
+  
+  var imageName: String{
+    switch self {
+      
+    case .AddGroundPointsButton:
+      return "plus"
+    case .SetHeightButton:
+      return "heart"
+    case .NextToHeight:
+      return "arrow.right"
+    case .NextToMaterial:
+      return "arrow.right"
+    }
+  }
+}
+
+
+struct ButtonControll: Identifiable {
+  var id: Int
+  var type: ButtonType
+  var sides: Double = 8
+  var rotationDegrees: Double = -40
+  var rotation3D: Double = -190
+  var scale: Double = 1
+  var opacity: Double = 0
+  var imageName: String { type.imageName }
+    
+  mutating func buttonOn() {
+    self.rotationDegrees = 0
+    self.rotation3D = 0
+    self.scale = 1
+    self.opacity = 1
+  }
+  
+  mutating func buttonOff() {
+    self.rotationDegrees = -180
+    self.rotation3D = -190
+    self.scale = 0.5
+    self.opacity = 0
+  }
+}
+
 class NavController: ObservableObject {
   var didChange = PassthroughSubject<Void, Never>()
 
@@ -27,57 +74,79 @@ class NavController: ObservableObject {
     case resizeDisplay
   }
   
+  var basePoints = [Int]()
+  var heightIsSet = false
+  
   @Published var test = "Test String"
   @Published var actionState:ActionState = .none
   
-  @Published var rotationDegrees: Double = -40
-  @Published var rotation3D: Double = -190
-  @Published var scale: Double = 0.6
-  @Published var imageName: String = "trash"
+  @Published var button1: ButtonControll = ButtonControll(id: 1, type: .AddGroundPointsButton)
+  @Published var button2: ButtonControll = ButtonControll(id: 2, type: .SetHeightButton)
+  @Published var button3: ButtonControll = ButtonControll(id: 3, type: .NextToHeight)
   
-  func changeValues(actionState: ActionState) {
-    print("navController 1")
-    self.rotationDegrees = Double.random(in: -270..<360)
-    self.rotation3D = Double.random(in: -270..<360)
-    self.scale = 0.01
+  @Published var showNextButtonToHeight = false
   
-    let deadlineTime = DispatchTime.now() + 0.3
-    DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-      print("navController 2")
-      self.actionState = actionState
-      self.setImageName(state: self.actionState)
-      self.rotationDegrees = 360
-      self.rotation3D = 0
-      self.scale = 1.2
-    }
-  }
-  
-  func setImageName(state: ActionState) {
-    switch state {
-      case .createBaselinesForGreenscreen:
-        self.imageName = "plus"
-      case .setHeightForGreenscreen:
-         self.imageName = "link"
-      default:
-        print("Default")
-    }
-  }
   
   func printMessage() {
     print("Message Print from xxx")
   }
   
+  
   func setHeightForGreenscreen() {
-    self.actionState = .setHeightForGreenscreen
+    //self.actionState = .setHeightForGreenscreen
+  }
+  
+  func showGreensceenAddBasePoints() {
+    self.button2.buttonOff()
+    self.button3.buttonOff()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.32) {
+      self.button1.buttonOn()
+    }
+  }
+  
+  func showHeightSettingsButton() {
+    button1.buttonOff()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.32) {
+      self.button2.buttonOn()
+      self.button3.buttonOff()
+    }
   }
   
   func createGreenscreenBasePoints() {
-    self.actionState = .createBaselinesForGreenscreen
+    print("Add basepoint")
+    //self.actionState = .createBaselinesForGreenscreen
+    
+    basePoints.append(212)
+    
+    if basePoints.count > 1 {
+      print("button on")
+      self.button3.buttonOn()
+    }
+    
   }
+  
+
   
   func switchActionAddGreenscreenBasePoints() {
     self.actionState = .createBaselinesForGreenscreen
   }
+  
+  func setHeight() {
+    self.heightIsSet.toggle()
+    
+    switch self.heightIsSet {
+    case true:
+      button3.buttonOff()
+      
+    case false:
+      //do action to set height
+      button3.buttonOn()
+      button3.type = .NextToMaterial
+      
+    }
+    
+  }
+  
   
   func switchActionToNone() {
     self.actionState = .none

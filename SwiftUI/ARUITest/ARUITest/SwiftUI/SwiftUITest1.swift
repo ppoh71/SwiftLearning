@@ -10,97 +10,61 @@ import SwiftUI
 
 struct SwiftUITest1: View {
   @EnvironmentObject var navController: NavController
-  
-  @State private var rotationDegrees: Double = -40
-  @State private var rotation3D: Double = -190
-  @State private var scale: Double = 1
+  @State private var showGSBasic = false
 
-  let but1 =  ButtonAddBasePoints()
-  
   var body: some View {
     
     VStack {
       
       HStack {
         Button(action: {
-          self.navController.changeValues(actionState: .createBaselinesForGreenscreen)
+          self.navController.showGreensceenAddBasePoints()
+        
         }) {
           Text("Add BasePoints")
         }
         
         Button(action: {
-          self.navController.changeValues(actionState: .setHeightForGreenscreen)
-            }) {
-              Text("Set Height")
-            }
+          
+        }) {
+          Text("Set Height")
+        }
         
         Button(action: {
-          //self.resetActionState()
-          self.switchButton(type: true)
+          
         }) {
           Text("Reset")
         }
       }
       
-      HStack {
-        but1
+        HStack {
+            GSBasicActionButton()
+        }
       }
     }
-  }
   
 
-  func switchButton(type: Bool) {
-    
-    // hide button first
-//    self.rotationDegrees = -270
-//    self.rotation3D = 0
-//    self.scale = 0.7
-    
-//    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { // Change `2.0` to the desired number of seconds.
-//       // Code you want to be delayed
-//      self.rotationDegrees = 30
-//      self.rotation3D = -360
-//      self.scale = 1
-//    }
-    
-  }
-  
-  func setHeight() {
-    navController.switchActionToNone()
-    //navController.setHeightForGreenscreen()
-    print("set height")
-    //self.rotationDegrees = -270
-    //self.rotation3D = 0
-    //self.scale = 1
-
-    
-  }
-  
-  func resetActionState() {
-    navController.switchActionToNone()
-
-    
-  }
-  
-  func greenscreenMakeBasePoints() {
-    //but1.doThings()
-    
-    navController.switchActionAddGreenscreenBasePoints()
-
-  }
-  
-  func doThings() {
-    
-
-    navController.printMessage()
-  }
-  
 }
 
 
 
 struct SwiftUITest1_Previews: PreviewProvider {
   static var previews: some View {
-    SwiftUITest1().environmentObject(NavController())
+    
+    
+    Group {
+       SwiftUITest1().environmentObject(NavController())
+      .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+      .previewDisplayName("iPhone XS Max")
+      
+//      SwiftUITest1().environmentObject(NavController())
+//      .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+//      .previewDisplayName("iPhone SE")
+
+      
+         
+    }
+    
   }
 }
+
