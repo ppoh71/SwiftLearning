@@ -37,10 +37,14 @@ struct SwiftUITest1: View {
         }
       }
       
+      Spacer()
+      
+      
         HStack {
-            GSBasicActionButton()
+            actionButtonsGreenscreenView()
         }
       }
+    .background(Color.clear).padding()
     }
   
 
@@ -54,8 +58,8 @@ struct SwiftUITest1_Previews: PreviewProvider {
     
     Group {
        SwiftUITest1().environmentObject(NavController())
-      .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
-      .previewDisplayName("iPhone XS Max")
+      .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+      .previewDisplayName("iPhone X")
       
 //      SwiftUITest1().environmentObject(NavController())
 //      .previewDevice(PreviewDevice(rawValue: "iPhone SE"))

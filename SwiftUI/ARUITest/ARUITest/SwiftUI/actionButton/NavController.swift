@@ -8,7 +8,6 @@
 import SwiftUI
 import Combine
 
-
 enum ButtonType {
   case AddGroundPointsButton
   case SetHeightButton
@@ -17,7 +16,6 @@ enum ButtonType {
   
   var imageName: String{
     switch self {
-      
     case .AddGroundPointsButton:
       return "plus"
     case .SetHeightButton:
@@ -27,32 +25,6 @@ enum ButtonType {
     case .NextToMaterial:
       return "arrow.right"
     }
-  }
-}
-
-
-struct ButtonControll: Identifiable {
-  var id: Int
-  var type: ButtonType
-  var sides: Double = 8
-  var rotationDegrees: Double = -40
-  var rotation3D: Double = -190
-  var scale: Double = 1
-  var opacity: Double = 0
-  var imageName: String { type.imageName }
-    
-  mutating func buttonOn() {
-    self.rotationDegrees = 0
-    self.rotation3D = 0
-    self.scale = 1
-    self.opacity = 1
-  }
-  
-  mutating func buttonOff() {
-    self.rotationDegrees = -180
-    self.rotation3D = -190
-    self.scale = 0.5
-    self.opacity = 0
   }
 }
 
@@ -80,20 +52,15 @@ class NavController: ObservableObject {
   @Published var test = "Test String"
   @Published var actionState:ActionState = .none
   
-  @Published var button1: ButtonControll = ButtonControll(id: 1, type: .AddGroundPointsButton)
-  @Published var button2: ButtonControll = ButtonControll(id: 2, type: .SetHeightButton)
-  @Published var button3: ButtonControll = ButtonControll(id: 3, type: .NextToHeight)
+  @Published var button1: ButtonAction = ButtonAction(id: 1, type: .AddGroundPointsButton)
+  @Published var button2: ButtonAction = ButtonAction(id: 2, type: .SetHeightButton)
+  @Published var button3: ButtonAction = ButtonAction(id: 3, type: .NextToHeight)
   
   @Published var showNextButtonToHeight = false
   
   
   func printMessage() {
     print("Message Print from xxx")
-  }
-  
-  
-  func setHeightForGreenscreen() {
-    //self.actionState = .setHeightForGreenscreen
   }
   
   func showGreensceenAddBasePoints() {
@@ -112,6 +79,10 @@ class NavController: ObservableObject {
     }
   }
   
+  func setHeightForGreenscreen() {
+    //self.actionState = .setHeightForGreenscreen
+  }
+  
   func createGreenscreenBasePoints() {
     print("Add basepoint")
     //self.actionState = .createBaselinesForGreenscreen
@@ -124,8 +95,6 @@ class NavController: ObservableObject {
     }
     
   }
-  
-
   
   func switchActionAddGreenscreenBasePoints() {
     self.actionState = .createBaselinesForGreenscreen
@@ -153,5 +122,6 @@ class NavController: ObservableObject {
   }
   
 }
+
 
 

@@ -10,12 +10,12 @@ import Foundation
 import SwiftUI
 import Combine
 
-struct GSBasicActionButton: View {
+struct actionButtonsGreenscreenView: View {
   @EnvironmentObject var navController: NavController
   
-  let but1 = ButtonAddBasePoints(buttonType: ButtonType.AddGroundPointsButton)
-  let but2 = ButtonAddBasePoints(buttonType: ButtonType.SetHeightButton)
-  let but3 = ButtonAddBasePoints(buttonType: ButtonType.NextToHeight)
+  let but1 = ButtonView(buttonType: ButtonType.AddGroundPointsButton)
+  let but2 = ButtonView(buttonType: ButtonType.SetHeightButton)
+  let but3 = ButtonView(buttonType: ButtonType.NextToHeight)
   
   var body: some View {
     
@@ -49,7 +49,7 @@ struct GSBasicActionButton_Previews: PreviewProvider {
     
     
     Group {
-      GSBasicActionButton().environmentObject(NavController())
+      actionButtonsGreenscreenView().environmentObject(NavController())
         .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
         .previewDisplayName("iPhone XS Max")
       

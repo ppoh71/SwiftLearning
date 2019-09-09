@@ -38,13 +38,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
       
         // SwiftUI
+    
+    
       
       let swiftUi = UIHostingController(rootView: SwiftUITest1().environmentObject(navControll) )
-        
+    swiftUi.view.backgroundColor = UIColor.clear
+    
       self.addChild(swiftUi)
       self.view.addSubview(swiftUi.view)
       
       swiftUi.view.frame = CGRect( x:0, y: self.view.frame.height - 400, width: self.view.frame.width, height: 200)
+  
       
       }
     
