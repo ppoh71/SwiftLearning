@@ -32,6 +32,7 @@ class NavController: ObservableObject {
   @Published var test = "Test String"
   @Published var actionState: ActionState = .none
   @Published var buttonsGreenscreenOffsetX: CGFloat = 0
+  @Published var buttonNextOffsetX: CGFloat = 0
   
   @Published var buttonSpacer: ButtonAction = ButtonAction(id: 0, type: .SpacerButton)
   @Published var buttonAddBasepointsGreenscreen: ButtonAction = ButtonAction(id: 1, type: .AddBasepointsGreenscreen)
@@ -47,21 +48,26 @@ class NavController: ObservableObject {
   
   func showButtonAddBasepointsGreenscreen() {
     self.buttonsGreenscreenOffsetX = 0
-    self.buttonSetHeightGreenscreen.buttonOff()
+    self.buttonNextOffsetX = 0
+    self.buttonNextSetHeightGreenscreen.type = .NextToSetHeightGreenscreen
     self.buttonNextSetHeightGreenscreen.buttonOff()
-    self.buttonNextMaterialGreenscreen.buttonOff()
+    
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.32) {
       self.buttonAddBasepointsGreenscreen.buttonOn()
+      self.buttonSetHeightGreenscreen.buttonOff()
+      
     }
   }
   
   func showButtonSetHeightGreenscreen() {
-    self.buttonsGreenscreenOffsetX = -220
-    buttonAddBasepointsGreenscreen.buttonOff()
-    buttonNextSetHeightGreenscreen.buttonOff()
-    buttonNextMaterialGreenscreen.buttonOff()
+    self.buttonsGreenscreenOffsetX = -120
+    self.buttonNextOffsetX = -120
+    
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.32) {
+      self.buttonNextSetHeightGreenscreen.type = .NextToMaterialGreenscreen
       self.buttonSetHeightGreenscreen.buttonOn()
+      self.buttonAddBasepointsGreenscreen.buttonOff()
+      self.buttonNextSetHeightGreenscreen.buttonOff()
     }
   }
   
@@ -82,20 +88,20 @@ class NavController: ObservableObject {
     switch self.heightIsSet {
     case true:
       self.buttonNextSetHeightGreenscreen.buttonOff()
-      self.buttonNextMaterialGreenscreen.buttonOn()
     case false:
       //do action to set height
-      self.buttonNextSetHeightGreenscreen.buttonOff()
-      self.buttonNextMaterialGreenscreen.buttonOff()
+      self.buttonNextSetHeightGreenscreen.buttonOn()
     }
   }
   
   func showMaterial() {
-    self.buttonsGreenscreenOffsetX = -380
+    self.buttonsGreenscreenOffsetX = -240 
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.32) {
+      self.buttonSetHeightGreenscreen.buttonOff()
+      self.buttonAddBasepointsGreenscreen.buttonOff()
+    }
   }
-  
-  
-
   
   
   func switchActionToNone() {

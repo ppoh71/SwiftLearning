@@ -20,10 +20,12 @@ struct ButtonView: View {
   @State private var scaleOuterButton: Double = 1
   
   var body: some View {
-    let buttonShape = PolygonShape(sides: sides, scale: scaleInnerButton)
-    let buttonShapeView = PolygonShape(sides: sides, scale: scaleInnerButton).stroke(Color.white, lineWidth: 3)
-    let gradientBackground = Color.clear.modifier(AnimatableGradient(from: buttonAction.type.gradient1, to:  buttonAction.type.gradient2, pct: self.active ? 1 : 0 ))
-    let gradientOutline = Color.clear.modifier(AnimatableGradient2(from:  buttonAction.type.gradient1, to:  buttonAction.type.gradient2, pct: self.active ? 1 : 0 ))
+    let buttonShape = PolygonShape(sides: buttonAction.sides, scale: scaleInnerButton)
+    let buttonShapeView = PolygonShape(sides: buttonAction.sides, scale: scaleInnerButton).stroke(Color.white, lineWidth: 3)
+    let circle = Circle().stroke(Color.white, lineWidth: 3)
+    
+    let gradientBackground = Color.white.modifier(AnimatableGradient(from: buttonAction.type.gradient1, to:  buttonAction.type.gradient2, pct: self.active ? 1 : 0 ))
+    let gradientOutline = Color.white.modifier(CircleGradient(from:  buttonAction.type.gradient1, to:  buttonAction.type.gradient2, pct: self.active ? 1 : 0 ))
     
     let buttonWidth = CGFloat(buttonAction.buttonWidth)
     
@@ -35,17 +37,17 @@ struct ButtonView: View {
     }
     ) {
       ZStack {
-        buttonShapeView
+        circle
           .frame(width: buttonWidth - 14, height: buttonWidth - 14, alignment: .center)
           .clipShape(buttonShape)
-          .shadow(color: .black, radius: 10, x: 2, y: 2)
+          //.shadow(color: .black, radius: 10, x: 2, y: 2)
           .background(gradientBackground)
           .clipShape(buttonShape)
           
           // animate click on button (inner)
           .scaleEffect(CGFloat(self.scaleInnerButton))
           .rotationEffect(Angle(degrees: self.rotationDegrees))
-          .animation(.easeInOut(duration: 0.3))
+          .animation(.easeInOut(duration: 0.15))
         
         gradientOutline
           .frame(width: buttonWidth - 5, height: buttonWidth - 5, alignment: .top)
@@ -54,14 +56,14 @@ struct ButtonView: View {
           // animate click on button (outer)
           .scaleEffect(CGFloat(self.scaleOuterButton))
           .rotationEffect(Angle(degrees: self.rotationDegrees))
-          .animation(.easeInOut(duration: 0.5))
+          .animation(.easeInOut(duration: 0.25))
           .background(Image(systemName: self.buttonAction.type.imageName)).foregroundColor(.white)
       }
-        .shadow(color: .black, radius: 30, x: 5, y: 5)
+        //.shadow(color: .black, radius: 30, x: 5, y: 5)
         
         // animate external events from navController
         .rotationEffect(Angle(degrees: self.buttonAction.rotationDegrees))
-        .rotation3DEffect(Angle(degrees: self.buttonAction.rotation3D), axis: (x: buttonAction.axisX, y: buttonAction.axisY, z: buttonAction.axisZ))
+        //.rotation3DEffect(Angle(degrees: self.buttonAction.rotation3D), axis: (x: buttonAction.axisX, y: buttonAction.axisY, z: buttonAction.axisZ))
         .scaleEffect(CGFloat(self.buttonAction.scale))
         .opacity(self.buttonAction.opacity)
         .frame(width: buttonWidth, height: buttonWidth, alignment: .center)

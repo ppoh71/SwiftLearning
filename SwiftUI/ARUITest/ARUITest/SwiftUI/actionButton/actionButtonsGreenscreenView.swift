@@ -25,22 +25,22 @@ struct actionButtonsGreenscreenView: View {
     
     return GeometryReader { geometry in
 
-           HStack {
+      HStack(spacing: 40) {
              buttonAddBasepoints
-              .background(Color.green)
-              Spacer(minLength: 30)
-             buttonNextToHeight
-              Spacer(minLength: 30)
+            //Spacer(minLength: 20)
              buttonSetHeight
-            Spacer(minLength: 30)
-             buttonNextToMaterial
            }
-           .position(x: geometry.size.width - 10 + self.navController.buttonsGreenscreenOffsetX, y: 80)
+           .position(x: geometry.size.width - 120 + self.navController.buttonsGreenscreenOffsetX, y: 80)
            .animation(.easeInOut(duration: 0.4))
-           .background(Color.green)
            .frame(maxWidth: .infinity)
 
-     
+          ZStack{
+            buttonNextToHeight
+            //buttonNextToMaterial
+          }.position(x: geometry.size.width - widthDelta - 20 + self.navController.buttonNextOffsetX, y: 80)
+           .animation(.easeInOut(duration: 0.4))
+      
+      
     }
 
   }

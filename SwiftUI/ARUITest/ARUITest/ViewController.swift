@@ -42,12 +42,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
       
       let swiftUi = UIHostingController(rootView: SwiftUITest1().environmentObject(navControll) )
-    swiftUi.view.backgroundColor = UIColor.clear
+      swiftUi.view.backgroundColor = UIColor.clear
     
       self.addChild(swiftUi)
       self.view.addSubview(swiftUi.view)
       
-      swiftUi.view.frame = CGRect( x:0, y: self.view.frame.height - 400, width: self.view.frame.width, height: 200)
+      swiftUi.view.frame = CGRect( x:0, y: self.view.frame.height - 400, width: self.view.frame.width, height: 300)
   
       
       }
@@ -59,7 +59,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let configuration = ARWorldTrackingConfiguration()
 
         // Run the view's session
-        sceneView.session.run(configuration)
+      //  sceneView.session.run(configuration)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -36,11 +36,9 @@ enum ButtonType {
     case .AddBasepointsGreenscreen:
       return [Utils.hexStringToUIColor(hex: "#dd3e54"), Utils.hexStringToUIColor(hex: "#6be585")]
     case .SetHeightGreenscreen:
-      return [Utils.hexStringToUIColor(hex: "#8A2387"), Utils.hexStringToUIColor(hex: "#E94057")]
-    case .NextToSetHeightGreenscreen:
-       return [Utils.hexStringToUIColor(hex: "#C9D6FF"), Utils.hexStringToUIColor(hex: "#E2E2E2")]
-    case .NextToMaterialGreenscreen:
-       return [Utils.hexStringToUIColor(hex: "#E94057"), Utils.hexStringToUIColor(hex: "#8A2387")]
+       return [Utils.hexStringToUIColor(hex: "#22c1c3"), Utils.hexStringToUIColor(hex: "#fdbb2d")]
+    case .NextToSetHeightGreenscreen, .NextToMaterialGreenscreen:
+       return [Utils.hexStringToUIColor(hex: "#11998e"), Utils.hexStringToUIColor(hex: "#38ef7d")]
     case .SpacerButton:
       return [Utils.hexStringToUIColor(hex: "#ffffff"), Utils.hexStringToUIColor(hex: "#ffffff")]
     }
@@ -51,11 +49,10 @@ enum ButtonType {
     case .AddBasepointsGreenscreen:
       return [Utils.hexStringToUIColor(hex: "#e1eec3"), Utils.hexStringToUIColor(hex: "#f05053")]
     case .SetHeightGreenscreen:
-      return [Utils.hexStringToUIColor(hex: "#22c1c3"), Utils.hexStringToUIColor(hex: "#fdbb2d")]
-    case .NextToSetHeightGreenscreen:
-       return [Utils.hexStringToUIColor(hex: "#ff9966"), Utils.hexStringToUIColor(hex: "#ff5e62")]
-    case .NextToMaterialGreenscreen:
-       return [Utils.hexStringToUIColor(hex: "#C9D6FF"), Utils.hexStringToUIColor(hex: "#E2E2E2")]
+      return [Utils.hexStringToUIColor(hex: "#8A2387"), Utils.hexStringToUIColor(hex: "#E94057")]
+     
+    case .NextToSetHeightGreenscreen, .NextToMaterialGreenscreen:
+       return [Utils.hexStringToUIColor(hex: "#1D976C"), Utils.hexStringToUIColor(hex: "#93F9B9")]
     case .SpacerButton:
       return [Utils.hexStringToUIColor(hex: "#ffffff"), Utils.hexStringToUIColor(hex: "#ffffff")]
     }
