@@ -8,26 +8,6 @@
 import SwiftUI
 import Combine
 
-enum ButtonType {
-  case AddGroundPointsButton
-  case SetHeightButton
-  case NextToHeight
-  case NextToMaterial
-  
-  var imageName: String{
-    switch self {
-    case .AddGroundPointsButton:
-      return "plus"
-    case .SetHeightButton:
-      return "heart"
-    case .NextToHeight:
-      return "arrow.right"
-    case .NextToMaterial:
-      return "arrow.right"
-    }
-  }
-}
-
 class NavController: ObservableObject {
   var didChange = PassthroughSubject<Void, Never>()
 
@@ -50,71 +30,72 @@ class NavController: ObservableObject {
   var heightIsSet = false
   
   @Published var test = "Test String"
-  @Published var actionState:ActionState = .none
+  @Published var actionState: ActionState = .none
+  @Published var buttonsGreenscreenOffsetX: CGFloat = 0
   
-  @Published var button1: ButtonAction = ButtonAction(id: 1, type: .AddGroundPointsButton)
-  @Published var button2: ButtonAction = ButtonAction(id: 2, type: .SetHeightButton)
-  @Published var button3: ButtonAction = ButtonAction(id: 3, type: .NextToHeight)
+  @Published var buttonSpacer: ButtonAction = ButtonAction(id: 0, type: .SpacerButton)
+  @Published var buttonAddBasepointsGreenscreen: ButtonAction = ButtonAction(id: 1, type: .AddBasepointsGreenscreen)
+  @Published var buttonSetHeightGreenscreen: ButtonAction = ButtonAction(id: 2, type: .SetHeightGreenscreen)
+  @Published var buttonNextSetHeightGreenscreen: ButtonAction = ButtonAction(id: 3, type: .NextToSetHeightGreenscreen)
+  @Published var buttonNextMaterialGreenscreen: ButtonAction = ButtonAction(id: 4, type: .NextToMaterialGreenscreen)
   
   @Published var showNextButtonToHeight = false
-  
   
   func printMessage() {
     print("Message Print from xxx")
   }
   
-  func showGreensceenAddBasePoints() {
-    self.button2.buttonOff()
-    self.button3.buttonOff()
+  func showButtonAddBasepointsGreenscreen() {
+    self.buttonsGreenscreenOffsetX = 0
+    self.buttonSetHeightGreenscreen.buttonOff()
+    self.buttonNextSetHeightGreenscreen.buttonOff()
+    self.buttonNextMaterialGreenscreen.buttonOff()
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.32) {
-      self.button1.buttonOn()
+      self.buttonAddBasepointsGreenscreen.buttonOn()
     }
   }
   
-  func showHeightSettingsButton() {
-    button1.buttonOff()
+  func showButtonSetHeightGreenscreen() {
+    self.buttonsGreenscreenOffsetX = -220
+    buttonAddBasepointsGreenscreen.buttonOff()
+    buttonNextSetHeightGreenscreen.buttonOff()
+    buttonNextMaterialGreenscreen.buttonOff()
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.32) {
-      self.button2.buttonOn()
-      self.button3.buttonOff()
+      self.buttonSetHeightGreenscreen.buttonOn()
     }
   }
   
-  func setHeightForGreenscreen() {
-    //self.actionState = .setHeightForGreenscreen
-  }
-  
-  func createGreenscreenBasePoints() {
+  /// Action Button Greenscreen
+  func actionAddBasepointsGreenscreen() {
     print("Add basepoint")
-    //self.actionState = .createBaselinesForGreenscreen
-    
-    basePoints.append(212)
+    basePoints.append(212) //debug
     
     if basePoints.count > 1 {
-      print("button on")
-      self.button3.buttonOn()
+      self.buttonNextSetHeightGreenscreen.buttonOn()
+      self.buttonNextMaterialGreenscreen.buttonOff()
     }
-    
   }
   
-  func switchActionAddGreenscreenBasePoints() {
-    self.actionState = .createBaselinesForGreenscreen
-  }
-  
-  func setHeight() {
+  func actionSetHeightGreenscreen() {
     self.heightIsSet.toggle()
     
     switch self.heightIsSet {
     case true:
-      button3.buttonOff()
-      
+      self.buttonNextSetHeightGreenscreen.buttonOff()
+      self.buttonNextMaterialGreenscreen.buttonOn()
     case false:
       //do action to set height
-      button3.buttonOn()
-      button3.type = .NextToMaterial
-      
+      self.buttonNextSetHeightGreenscreen.buttonOff()
+      self.buttonNextMaterialGreenscreen.buttonOff()
     }
-    
   }
+  
+  func showMaterial() {
+    self.buttonsGreenscreenOffsetX = -380
+  }
+  
+  
+
   
   
   func switchActionToNone() {

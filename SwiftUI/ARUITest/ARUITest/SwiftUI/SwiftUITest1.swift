@@ -13,38 +13,37 @@ struct SwiftUITest1: View {
   @State private var showGSBasic = false
 
   var body: some View {
-    
+
     VStack {
       
       HStack {
         Button(action: {
-          self.navController.showGreensceenAddBasePoints()
+          self.navController.showButtonAddBasepointsGreenscreen()
         
         }) {
           Text("Add BasePoints")
         }
         
         Button(action: {
-          
+          self.navController.showButtonSetHeightGreenscreen()
         }) {
           Text("Set Height")
         }
         
         Button(action: {
-          
+          self.navController.showMaterial()
         }) {
           Text("Reset")
         }
       }
-      
-      Spacer()
-      
-      
-        HStack {
-            actionButtonsGreenscreenView()
-        }
+      HStack {
+             actionButtonsGreenscreenView()
+               .frame(maxWidth: .infinity)
+             
+         }
       }
-    .background(Color.clear).padding()
+      .frame(maxWidth: .infinity)
+      .background(Color.clear)
     }
   
 
@@ -61,12 +60,11 @@ struct SwiftUITest1_Previews: PreviewProvider {
       .previewDevice(PreviewDevice(rawValue: "iPhone X"))
       .previewDisplayName("iPhone X")
       
-//      SwiftUITest1().environmentObject(NavController())
-//      .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-//      .previewDisplayName("iPhone SE")
+      SwiftUITest1().environmentObject(NavController())
+      .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+      .previewDisplayName("iPhone 8")
 
       
-         
     }
     
   }

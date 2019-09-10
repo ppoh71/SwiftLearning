@@ -13,45 +13,46 @@ import Combine
 struct actionButtonsGreenscreenView: View {
   @EnvironmentObject var navController: NavController
   
-  let but1 = ButtonView(buttonType: ButtonType.AddGroundPointsButton)
-  let but2 = ButtonView(buttonType: ButtonType.SetHeightButton)
-  let but3 = ButtonView(buttonType: ButtonType.NextToHeight)
-  
   var body: some View {
+    let buttonAddBasepoints = ButtonView(buttonAction:$navController.buttonAddBasepointsGreenscreen)
+    let buttonSetHeight = ButtonView(buttonAction:$navController.buttonSetHeightGreenscreen)
+    let buttonNextToHeight = ButtonView(buttonAction:$navController.buttonNextSetHeightGreenscreen)
+    let buttonNextToMaterial = ButtonView(buttonAction:$navController.buttonNextMaterialGreenscreen)
+    //let spacerButton = ButtonView(buttonAction:$navController.buttonSpacer)
+    //let offset: CGFloat = 50
     
-    ZStack {
-      but1
-        .buttonStyle(ButtonStyle1(buttonCrt: $navController.button1))
+    let widthDelta = CGFloat(navController.buttonAddBasepointsGreenscreen.buttonWidth/2)
+    
+    return GeometryReader { geometry in
 
-      but2
-        .buttonStyle(ButtonStyle1(buttonCrt: $navController.button2))
+           HStack {
+             buttonAddBasepoints
+              .background(Color.green)
+              Spacer(minLength: 30)
+             buttonNextToHeight
+              Spacer(minLength: 30)
+             buttonSetHeight
+            Spacer(minLength: 30)
+             buttonNextToMaterial
+           }
+           .position(x: geometry.size.width - 10 + self.navController.buttonsGreenscreenOffsetX, y: 80)
+           .animation(.easeInOut(duration: 0.4))
+           .background(Color.green)
+           .frame(maxWidth: .infinity)
 
-      HStack {
-        Spacer()
-        Spacer()
-        Spacer()
-        Spacer()
-        Spacer()
-        Spacer()
-        
-        but3
-          .buttonStyle(ButtonStyle1(buttonCrt: $navController.button3 ))
-
-        Spacer()
-      }
-      
+     
     }
+
   }
 }
 
 struct GSBasicActionButton_Previews: PreviewProvider {
   static var previews: some View {
-    
-    
+ 
     Group {
       actionButtonsGreenscreenView().environmentObject(NavController())
-        .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
-        .previewDisplayName("iPhone XS Max")
+        .previewDevice(PreviewDevice(rawValue: "iPhone X"))
+        .previewDisplayName("iPhone X")
       
     }
     

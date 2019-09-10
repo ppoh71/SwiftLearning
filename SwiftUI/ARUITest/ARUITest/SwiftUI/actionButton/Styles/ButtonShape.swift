@@ -14,7 +14,6 @@ struct PolygonShape: Shape {
     var sides: Double
     var scale: Double
   
-    
     var animatableData: AnimatablePair<Double, Double> {
         get { AnimatablePair(sides, scale) }
         set {

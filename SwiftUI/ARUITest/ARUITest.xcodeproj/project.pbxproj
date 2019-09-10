@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90694FD2327C052007F11DB /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90694FC2327C052007F11DB /* ButtonType.swift */; };
+		A90694FF2327C101007F11DB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90694FE2327C101007F11DB /* Utils.swift */; };
 		A95ECC9C2326D86500FC8475 /* ButtonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95ECC9B2326D86500FC8475 /* ButtonShape.swift */; };
 		A95ECC9E2326D8FB00FC8475 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95ECC9D2326D8FB00FC8475 /* ButtonAction.swift */; };
 		A9B2AC40232439A80057C864 /* actionButtonsGreenscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2AC3F232439A80057C864 /* actionButtonsGreenscreenView.swift */; };
@@ -22,7 +24,6 @@
 		A9B679B72315E59A00FC3200 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B679B62315E59A00FC3200 /* NavController.swift */; };
 		A9CA3C6823196DA900C5E005 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA3C6723196DA900C5E005 /* ButtonView.swift */; };
 		A9CA3C6A23196E1500C5E005 /* AnimatableGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA3C6923196E1500C5E005 /* AnimatableGradients.swift */; };
-		A9CA3C6D2319822F00C5E005 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA3C6C2319822F00C5E005 /* ButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A90694FC2327C052007F11DB /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
+		A90694FE2327C101007F11DB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A95ECC9B2326D86500FC8475 /* ButtonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonShape.swift; sourceTree = "<group>"; };
 		A95ECC9D2326D8FB00FC8475 /* ButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
 		A9B2AC3F232439A80057C864 /* actionButtonsGreenscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionButtonsGreenscreenView.swift; sourceTree = "<group>"; };
@@ -64,7 +67,6 @@
 		A9B679B62315E59A00FC3200 /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 		A9CA3C6723196DA900C5E005 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		A9CA3C6923196E1500C5E005 /* AnimatableGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableGradients.swift; sourceTree = "<group>"; };
-		A9CA3C6C2319822F00C5E005 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		A90694FB2326E100007F11DB /* actionButton */ = {
 			isa = PBXGroup;
 			children = (
+				A90695002327C8BA007F11DB /* Styles */,
 				A95ECC9A2326D83B00FC8475 /* Utils */,
 				A9CA3C6B2319821900C5E005 /* Button */,
 				A9B2AC3F232439A80057C864 /* actionButtonsGreenscreenView.swift */,
@@ -103,12 +106,19 @@
 			path = actionButton;
 			sourceTree = "<group>";
 		};
+		A90695002327C8BA007F11DB /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				A95ECC9B2326D86500FC8475 /* ButtonShape.swift */,
+				A9CA3C6923196E1500C5E005 /* AnimatableGradients.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		A95ECC9A2326D83B00FC8475 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A9CA3C6923196E1500C5E005 /* AnimatableGradients.swift */,
-				A95ECC9B2326D86500FC8475 /* ButtonShape.swift */,
-				A95ECC9D2326D8FB00FC8475 /* ButtonAction.swift */,
+				A90694FE2327C101007F11DB /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -179,7 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				A9CA3C6723196DA900C5E005 /* ButtonView.swift */,
-				A9CA3C6C2319822F00C5E005 /* ButtonStyle.swift */,
+				A95ECC9D2326D8FB00FC8475 /* ButtonAction.swift */,
+				A90694FC2327C052007F11DB /* ButtonType.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -320,12 +331,13 @@
 				A9B679B72315E59A00FC3200 /* NavController.swift in Sources */,
 				A95ECC9E2326D8FB00FC8475 /* ButtonAction.swift in Sources */,
 				A9CA3C6A23196E1500C5E005 /* AnimatableGradients.swift in Sources */,
+				A90694FD2327C052007F11DB /* ButtonType.swift in Sources */,
 				A9B679B52315D10C00FC3200 /* SwiftUITest1.swift in Sources */,
 				A9CA3C6823196DA900C5E005 /* ButtonView.swift in Sources */,
-				A9CA3C6D2319822F00C5E005 /* ButtonStyle.swift in Sources */,
 				A9B679882315CEB900FC3200 /* ViewController.swift in Sources */,
 				A9B679842315CEB900FC3200 /* AppDelegate.swift in Sources */,
 				A95ECC9C2326D86500FC8475 /* ButtonShape.swift in Sources */,
+				A90694FF2327C101007F11DB /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
