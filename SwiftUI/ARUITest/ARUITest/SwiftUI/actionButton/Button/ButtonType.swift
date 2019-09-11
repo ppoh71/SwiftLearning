@@ -16,6 +16,7 @@ enum ButtonType {
   case NextToMaterialGreenscreen
   case SpacerButton
   
+  /// image for button by type
   var imageName: String{
     switch self {
     case .AddBasepointsGreenscreen:
@@ -31,6 +32,7 @@ enum ButtonType {
     }
   }
   
+  /// gradient color for buttons by type
   var gradient1: [UIColor] {
     switch self {
     case .AddBasepointsGreenscreen:

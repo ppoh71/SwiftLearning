@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 struct ButtonView: View {
-  @EnvironmentObject var navController: NavController
+  @EnvironmentObject var navController: actionButtonObserver
   @Binding var buttonAction: ButtonAction // binding comes from navController too
   
   @State private var active: Bool = false
@@ -20,31 +20,27 @@ struct ButtonView: View {
   @State private var scaleOuterButton: Double = 1
   
   var body: some View {
-    let buttonShape = PolygonShape(sides: buttonAction.sides, scale: scaleInnerButton)
-    let buttonShapeView = PolygonShape(sides: buttonAction.sides, scale: scaleInnerButton).stroke(Color.white, lineWidth: 3)
     let circle = Circle().stroke(Color.white, lineWidth: 3)
-    
+    let circleShape = Circle()
     let gradientBackground = Color.white.modifier(AnimatableGradient(from: buttonAction.type.gradient1, to:  buttonAction.type.gradient2, pct: self.active ? 1 : 0 ))
     let gradientOutline = Color.white.modifier(CircleGradient(from:  buttonAction.type.gradient1, to:  buttonAction.type.gradient2, pct: self.active ? 1 : 0 ))
-    
     let buttonWidth = CGFloat(buttonAction.buttonWidth)
     
     return Button(action: {
       withAnimation(.easeInOut(duration: 1.0)) {
         self.active.toggle()
       }
-      self.doThings()
+      self.clickAction()
     }
     ) {
+      /// Button Design
       ZStack {
         circle
           .frame(width: buttonWidth - 14, height: buttonWidth - 14, alignment: .center)
-          .clipShape(buttonShape)
-          //.shadow(color: .black, radius: 10, x: 2, y: 2)
           .background(gradientBackground)
-          .clipShape(buttonShape)
+          .clipShape(circleShape)
           
-          // animate click on button (inner)
+          /// animate click on button (inner)
           .scaleEffect(CGFloat(self.scaleInnerButton))
           .rotationEffect(Angle(degrees: self.rotationDegrees))
           .animation(.easeInOut(duration: 0.15))
@@ -53,7 +49,7 @@ struct ButtonView: View {
           .frame(width: buttonWidth - 5, height: buttonWidth - 5, alignment: .top)
           .background(gradientOutline)
           
-          // animate click on button (outer)
+          /// animate click on button (outer)
           .scaleEffect(CGFloat(self.scaleOuterButton))
           .rotationEffect(Angle(degrees: self.rotationDegrees))
           .animation(.easeInOut(duration: 0.25))
@@ -61,18 +57,17 @@ struct ButtonView: View {
       }
         //.shadow(color: .black, radius: 30, x: 5, y: 5)
         
-        // animate external events from navController
+        /// animate external events from navController
         .rotationEffect(Angle(degrees: self.buttonAction.rotationDegrees))
-        //.rotation3DEffect(Angle(degrees: self.buttonAction.rotation3D), axis: (x: buttonAction.axisX, y: buttonAction.axisY, z: buttonAction.axisZ))
         .scaleEffect(CGFloat(self.buttonAction.scale))
         .opacity(self.buttonAction.opacity)
         .frame(width: buttonWidth, height: buttonWidth, alignment: .center)
         .animation(.easeInOut(duration: 0.4))
         
-    }.disabled(self.buttonAction.disabled) // disable button for ZStack
+    }.disabled(self.buttonAction.disabled) /// disable button for ZStack
   }
   
-  func doThings() {
+  func clickAction() {
     print("click but1")
     clickAnimation()
     
@@ -117,7 +112,7 @@ struct ButtonView: View {
 struct ButtonAddBasePoints_Previews: PreviewProvider {
   static var previews: some View {
     //.constant(ButtonAction(id: 10, type: .AddGroundPointsButton))
-    ButtonView( buttonAction: .constant(ButtonAction(id: 10, type: .AddBasepointsGreenscreen))).environmentObject(NavController())
+    ButtonView( buttonAction: .constant(ButtonAction(id: 10, type: .AddBasepointsGreenscreen))).environmentObject(actionButtonObserver())
       .previewDevice(PreviewDevice(rawValue: "iPhone X"))
       .previewDisplayName("iPhone X")
   }

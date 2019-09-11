@@ -14,13 +14,11 @@ import Combine
 
 
 class ViewController: UIViewController, ARSCNViewDelegate {
-    let navControll = NavController()
+    let navControll = actionButtonObserver()
   
     @IBOutlet var sceneView: ARSCNView!
     
-    @IBAction func testAction(_ sender: Any) {
-      navControll.test = "x"
-    }
+
   override func viewDidLoad() {
         super.viewDidLoad()
         

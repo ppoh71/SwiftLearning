@@ -8,7 +8,9 @@
 import SwiftUI
 import Combine
 
-class NavController: ObservableObject {
+/// Source of Truth for buttons to create the greenscreen shape
+
+class actionButtonObserver: ObservableObject {
   var didChange = PassthroughSubject<Void, Never>()
 
   enum ActionState {
@@ -28,40 +30,38 @@ class NavController: ObservableObject {
   
   var basePoints = [Int]()
   var heightIsSet = false
+  var animationDuration = 0.32
   
   @Published var test = "Test String"
   @Published var actionState: ActionState = .none
   @Published var buttonsGreenscreenOffsetX: CGFloat = 0
-  @Published var buttonNextOffsetX: CGFloat = 0
   
   @Published var buttonSpacer: ButtonAction = ButtonAction(id: 0, type: .SpacerButton)
   @Published var buttonAddBasepointsGreenscreen: ButtonAction = ButtonAction(id: 1, type: .AddBasepointsGreenscreen)
-  @Published var buttonSetHeightGreenscreen: ButtonAction = ButtonAction(id: 2, type: .SetHeightGreenscreen)
   @Published var buttonNextSetHeightGreenscreen: ButtonAction = ButtonAction(id: 3, type: .NextToSetHeightGreenscreen)
   @Published var buttonNextMaterialGreenscreen: ButtonAction = ButtonAction(id: 4, type: .NextToMaterialGreenscreen)
   
   @Published var showNextButtonToHeight = false
   
-  func printMessage() {
-    print("Message Print from xxx")
-  }
-  
+
+  /// Show button  for adding basepoint
+  /// & hide others
   func showButtonAddBasepointsGreenscreen() {
     self.buttonsGreenscreenOffsetX = 0
-    self.buttonNextOffsetX = 0
     self.buttonNextSetHeightGreenscreen.type = .SetHeightGreenscreen
    
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.32) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
       self.buttonAddBasepointsGreenscreen.buttonOn()
       self.buttonNextSetHeightGreenscreen.buttonOff()
     }
   }
   
+  /// Show button  for setting height of greenscreen
+  /// & hide others
   func showButtonSetHeightGreenscreen() {
     self.buttonsGreenscreenOffsetX = -130
-    
-    
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.32) {
+
+    DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
       self.buttonNextMaterialGreenscreen.buttonOff()
       self.buttonNextSetHeightGreenscreen.type = .SetHeightGreenscreen
       self.buttonNextSetHeightGreenscreen.buttonOn()
@@ -69,7 +69,10 @@ class NavController: ObservableObject {
     }
   }
   
-  /// Action Button Greenscreen
+  /// Action when new basepoint for greenscreen was added
+  /// by tapping on buttonAddBasepointsGreenscreen
+  ///
+  /// Set actionState for arView and handle button states
   func actionAddBasepointsGreenscreen() {
     print("Add basepoint")
     basePoints.append(212) //debug
@@ -81,6 +84,10 @@ class NavController: ObservableObject {
     }
   }
   
+  /// Action when height for greenscreen was set
+  /// by tapping on buttonNextSetHeightGreenscreen
+  ///
+  /// Set actionState for arView and handle button states
   func actionSetHeightGreenscreen() {
     self.heightIsSet.toggle()
     
@@ -96,20 +103,19 @@ class NavController: ObservableObject {
   func showMaterial() {
     self.buttonsGreenscreenOffsetX = -260
     
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.32) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
       self.buttonNextSetHeightGreenscreen.buttonOff()
       self.buttonAddBasepointsGreenscreen.buttonOff()
-      
-      
-      
     }
   }
-  
   
   func switchActionToNone() {
     self.actionState = .none
   }
   
+  func printMessage() {
+    print("Message Print from xxx")
+  }
 }
 
 

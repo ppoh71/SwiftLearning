@@ -21,7 +21,7 @@
 		A9B6799B2315CEBA00FC3200 /* ARUITestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6799A2315CEBA00FC3200 /* ARUITestTests.swift */; };
 		A9B679A62315CEBA00FC3200 /* ARUITestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B679A52315CEBA00FC3200 /* ARUITestUITests.swift */; };
 		A9B679B52315D10C00FC3200 /* SwiftUITest1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B679B42315D10C00FC3200 /* SwiftUITest1.swift */; };
-		A9B679B72315E59A00FC3200 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B679B62315E59A00FC3200 /* NavController.swift */; };
+		A9B679B72315E59A00FC3200 /* actionButtonObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B679B62315E59A00FC3200 /* actionButtonObserver.swift */; };
 		A9CA3C6823196DA900C5E005 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA3C6723196DA900C5E005 /* ButtonView.swift */; };
 		A9CA3C6A23196E1500C5E005 /* AnimatableGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA3C6923196E1500C5E005 /* AnimatableGradients.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +64,7 @@
 		A9B679A52315CEBA00FC3200 /* ARUITestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARUITestUITests.swift; sourceTree = "<group>"; };
 		A9B679A72315CEBA00FC3200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B679B42315D10C00FC3200 /* SwiftUITest1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITest1.swift; sourceTree = "<group>"; };
-		A9B679B62315E59A00FC3200 /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		A9B679B62315E59A00FC3200 /* actionButtonObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionButtonObserver.swift; sourceTree = "<group>"; };
 		A9CA3C6723196DA900C5E005 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		A9CA3C6923196E1500C5E005 /* AnimatableGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableGradients.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,8 +100,6 @@
 				A90695002327C8BA007F11DB /* Styles */,
 				A95ECC9A2326D83B00FC8475 /* Utils */,
 				A9CA3C6B2319821900C5E005 /* Button */,
-				A9B2AC3F232439A80057C864 /* actionButtonsGreenscreenView.swift */,
-				A9B679B62315E59A00FC3200 /* NavController.swift */,
 			);
 			path = actionButton;
 			sourceTree = "<group>";
@@ -180,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				A90694FB2326E100007F11DB /* actionButton */,
+				A9FA317023291B8000AAF1D5 /* createButtonsGreenscreen */,
 				A9B679B42315D10C00FC3200 /* SwiftUITest1.swift */,
 			);
 			path = SwiftUI;
@@ -193,6 +192,15 @@
 				A90694FC2327C052007F11DB /* ButtonType.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		A9FA317023291B8000AAF1D5 /* createButtonsGreenscreen */ = {
+			isa = PBXGroup;
+			children = (
+				A9B2AC3F232439A80057C864 /* actionButtonsGreenscreenView.swift */,
+				A9B679B62315E59A00FC3200 /* actionButtonObserver.swift */,
+			);
+			path = createButtonsGreenscreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,7 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9B2AC40232439A80057C864 /* actionButtonsGreenscreenView.swift in Sources */,
-				A9B679B72315E59A00FC3200 /* NavController.swift in Sources */,
+				A9B679B72315E59A00FC3200 /* actionButtonObserver.swift in Sources */,
 				A95ECC9E2326D8FB00FC8475 /* ButtonAction.swift in Sources */,
 				A9CA3C6A23196E1500C5E005 /* AnimatableGradients.swift in Sources */,
 				A90694FD2327C052007F11DB /* ButtonType.swift in Sources */,

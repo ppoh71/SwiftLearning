@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SwiftUITest1: View {
-  @EnvironmentObject var navController: NavController
+  @EnvironmentObject var navController: actionButtonObserver
   @State private var showGSBasic = false
 
   var body: some View {
@@ -56,11 +56,11 @@ struct SwiftUITest1_Previews: PreviewProvider {
     
     
     Group {
-       SwiftUITest1().environmentObject(NavController())
+       SwiftUITest1().environmentObject(actionButtonObserver())
       .previewDevice(PreviewDevice(rawValue: "iPhone X"))
       .previewDisplayName("iPhone X")
       
-      SwiftUITest1().environmentObject(NavController())
+      SwiftUITest1().environmentObject(actionButtonObserver())
       .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
       .previewDisplayName("iPhone 8")
 
