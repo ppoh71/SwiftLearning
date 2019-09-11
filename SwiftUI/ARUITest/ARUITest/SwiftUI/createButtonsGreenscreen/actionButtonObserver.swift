@@ -59,12 +59,14 @@ class actionButtonObserver: ObservableObject {
   /// Show button  for setting height of greenscreen
   /// & hide others
   func showButtonSetHeightGreenscreen() {
+    // actionState = .setHeightForGreenscreen
     self.buttonsGreenscreenOffsetX = -130
 
     DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
-      self.buttonNextMaterialGreenscreen.buttonOff()
       self.buttonNextSetHeightGreenscreen.type = .SetHeightGreenscreen
       self.buttonNextSetHeightGreenscreen.buttonOn()
+      
+      self.buttonNextMaterialGreenscreen.buttonOff()
       self.buttonAddBasepointsGreenscreen.buttonOff()
     }
   }
@@ -89,14 +91,15 @@ class actionButtonObserver: ObservableObject {
   ///
   /// Set actionState for arView and handle button states
   func actionSetHeightGreenscreen() {
+    // action State finish set height
     self.heightIsSet.toggle()
     
     switch self.heightIsSet {
     case true:
-      self.buttonNextMaterialGreenscreen.buttonOff()
+      self.buttonNextMaterialGreenscreen.buttonOn()
     case false:
       //do action to set height
-      self.buttonNextMaterialGreenscreen.buttonOn()
+      self.buttonNextMaterialGreenscreen.buttonOff()
     }
   }
   
