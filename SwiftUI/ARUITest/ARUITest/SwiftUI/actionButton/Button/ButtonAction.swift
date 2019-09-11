@@ -47,7 +47,7 @@ struct ButtonAction: Identifiable {
     switch type {
     
     case .NextToSetHeightGreenscreen, .NextToMaterialGreenscreen:
-      _scaleOn = 0.85
+      _scaleOn = 1
       _scaleOff = 0.5
       _opacityOff = 0
     default:

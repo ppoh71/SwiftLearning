@@ -27,20 +27,13 @@ struct actionButtonsGreenscreenView: View {
 
       HStack(spacing: 40) {
              buttonAddBasepoints
-            //Spacer(minLength: 20)
-             buttonSetHeight
+             buttonNextToHeight
+             buttonNextToMaterial
            }
-           .position(x: geometry.size.width - 120 + self.navController.buttonsGreenscreenOffsetX, y: 80)
+           .position(x: geometry.size.width - widthDelta + self.navController.buttonsGreenscreenOffsetX, y: 80)
            .animation(.easeInOut(duration: 0.4))
            .frame(maxWidth: .infinity)
 
-          ZStack{
-            buttonNextToHeight
-            //buttonNextToMaterial
-          }.position(x: geometry.size.width - widthDelta - 20 + self.navController.buttonNextOffsetX, y: 80)
-           .animation(.easeInOut(duration: 0.4))
-      
-      
     }
 
   }

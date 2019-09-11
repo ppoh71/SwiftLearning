@@ -104,7 +104,7 @@ struct ButtonView: View {
   }
   
   func clickAnimation() {
-    self.rotationDegrees += 45
+    self.rotationDegrees += 120
     self.scaleInnerButton = 0.95
     self.scaleOuterButton = 0.85
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
