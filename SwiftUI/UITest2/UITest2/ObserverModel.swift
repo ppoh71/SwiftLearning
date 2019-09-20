@@ -22,7 +22,7 @@ struct ItemModel: Identifiable  {
   var isTapped: Bool = false
 }
 
-class OberserverModel: ObservableObject {
+class ObserverModel: ObservableObject {
   var didChange = PassthroughSubject<Void, Never>()
   
   @Published var itemA: ItemModel = ItemModel(id: 1, type: .itemTypeA)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A921942A2335298B00E783FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92194292335298B00E783FA /* ContentView.swift */; };
 		A995697C23351B160078E291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A995697B23351B160078E291 /* AppDelegate.swift */; };
 		A995697E23351B160078E291 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A995697D23351B160078E291 /* SceneDelegate.swift */; };
 		A995698223351B180078E291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A995698123351B180078E291 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A92194292335298B00E783FA /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../xx/xx/ContentView.swift; sourceTree = "<group>"; };
 		A995697823351B160078E291 /* UITest2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITest2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A995697B23351B160078E291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A995697D23351B160078E291 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				A99569AD23351B9A0078E291 /* ObserverModel.swift */,
 				A99569AB23351B3F0078E291 /* ItemView.swift */,
 				A99569AF23351FE10078E291 /* ItemsView.swift */,
+				A92194292335298B00E783FA /* ContentView.swift */,
 				A995698123351B180078E291 /* Assets.xcassets */,
 				A995698623351B180078E291 /* LaunchScreen.storyboard */,
 				A995698923351B180078E291 /* Info.plist */,
@@ -275,6 +278,7 @@
 			files = (
 				A995697C23351B160078E291 /* AppDelegate.swift in Sources */,
 				A99569B023351FE10078E291 /* ItemsView.swift in Sources */,
+				A921942A2335298B00E783FA /* ContentView.swift in Sources */,
 				A99569AE23351B9A0078E291 /* ObserverModel.swift in Sources */,
 				A995697E23351B160078E291 /* SceneDelegate.swift in Sources */,
 				A99569AC23351B3F0078E291 /* ItemView.swift in Sources */,

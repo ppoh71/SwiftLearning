@@ -9,14 +9,18 @@
 import SwiftUI
 
 struct ItemView: View {
-  @EnvironmentObject var observer: OberserverModel
+  @EnvironmentObject var observer: ObserverModel
   @Binding var itemBinding: ItemModel
+  @State private var toggleColor = Color.red
   
   var body: some View {
     Rectangle()
+      .fill(toggleColor)
       .frame(width: 100, height: 50)
       .onTapGesture{
         self.observer.toggleItem(itemType: self.itemBinding.type)
+        self.toggleColor = self.itemBinding.isTapped ? Color.green : Color.red
+        
         print("Item Bool: \(self.itemBinding.isTapped)")
     }
   }
@@ -24,6 +28,6 @@ struct ItemView: View {
 
 struct ItemView_Previews: PreviewProvider {
   static var previews: some View {
-    ItemView(itemBinding: .constant(ItemModel(id: 1, type: .itemTypeA))).environmentObject(OberserverModel())
+    ItemView(itemBinding: .constant(ItemModel(id: 1, type: .itemTypeA))).environmentObject(ObserverModel())
   }
 }

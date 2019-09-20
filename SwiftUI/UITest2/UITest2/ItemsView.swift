@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ItemsView: View {
-  @EnvironmentObject var observer: OberserverModel
+  @EnvironmentObject var observer: ObserverModel
   
     var body: some View {
       HStack {
@@ -22,6 +22,6 @@ struct ItemsView: View {
 
 struct ItemsView_Previews: PreviewProvider {
     static var previews: some View {
-      ItemsView().environmentObject(OberserverModel())
+      ItemsView().environmentObject(ObserverModel())
     }
 }
