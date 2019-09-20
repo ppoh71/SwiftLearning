@@ -11,10 +11,27 @@ import SwiftUI
 struct SwiftUITest1: View {
   @EnvironmentObject var navController: actionButtonObserver
   @State private var showGSBasic = false
+  @State private var selection = 0
 
   var body: some View {
 
     VStack {
+      
+      HStack{
+        Picker("", selection: $selection) {
+          Text("Shape").tag(1)
+            .font(.headline)
+          Text("Height").tag(2)
+           .font(.headline)
+          Text("Material").tag(3)
+           .font(.headline)
+        }
+          
+        .pickerStyle(SegmentedPickerStyle())
+        .background(RoundedRectangle(cornerRadius: 8)
+        
+        .stroke(Color.red, lineWidth: selection == 0 ? 1 : 0)) .padding()
+      }
       
       HStack {
         Button(action: {
